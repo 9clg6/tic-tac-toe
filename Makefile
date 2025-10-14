@@ -37,7 +37,7 @@ setup:
 	fvm flutter pub get
 
 mason-get:
-	fvm dart pub global run mason_cli get
+	fvm dart pub global run mason_cli:mason get
 
 generate:
 	fvm dart run build_runner build --delete-conflicting-outputs

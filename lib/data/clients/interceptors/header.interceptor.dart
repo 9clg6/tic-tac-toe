@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:starter_kit/data/clients/dio.client.dart';
-import 'package:starter_kit/domain/entities/auth.entity.dart';
-import 'package:starter_kit/domain/services/navigation.service.dart';
-import 'package:starter_kit/domain/usecases/get_auth.use_case.dart';
-import 'package:starter_kit/foundation/interfaces/results.usecases.dart';
+import 'package:tictactoe/data/clients/dio.client.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/services/navigation.service.dart';
+import 'package:tictactoe/domain/usecases/get_auth.use_case.dart';
+import 'package:tictactoe/foundation/interfaces/results.usecases.dart';
 
 ///
 /// [HeaderInterceptor]

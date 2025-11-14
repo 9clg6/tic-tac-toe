@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/data/storages/authentication.secure_storage.dart';
+import 'package:tictactoe/data/storages/authentication.secure_storage.dart';
 
 part 'authentication.secure_storage.provider.g.dart';
 

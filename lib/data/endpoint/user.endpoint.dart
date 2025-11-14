@@ -2,7 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:starter_kit/data/model/remote/user.remote.model.dart';
+import 'package:tictactoe/data/model/remote/user.remote.model.dart';
 
 part 'user.endpoint.g.dart';
 

@@ -1,10 +1,10 @@
-import 'package:starter_kit/data/datasources/local/authentication.local.data_source.dart';
-import 'package:starter_kit/data/datasources/remote/authentication.remote.data_source.dart';
-import 'package:starter_kit/data/model/local/auth.local.model.dart';
-import 'package:starter_kit/data/model/remote/auth.remote.model.dart';
-import 'package:starter_kit/domain/entities/auth.entity.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
-import 'package:starter_kit/domain/repositories/authentication.repository.dart';
+import 'package:tictactoe/data/datasources/local/authentication.local.data_source.dart';
+import 'package:tictactoe/data/datasources/remote/authentication.remote.data_source.dart';
+import 'package:tictactoe/data/model/local/auth.local.model.dart';
+import 'package:tictactoe/data/model/remote/auth.remote.model.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
+import 'package:tictactoe/domain/repositories/authentication.repository.dart';
 
 /// Authentication Repository
 final class AuthenticationRepositoryImpl extends AuthenticationRepository {

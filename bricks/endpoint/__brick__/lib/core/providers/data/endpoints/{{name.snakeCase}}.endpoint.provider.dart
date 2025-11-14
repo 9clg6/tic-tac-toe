@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '{{client_provider_import}}';
 import '{{client_class_import}}';
-import 'package:starter_kit/data/endpoint/{{name.snakeCase}}.endpoint.dart';
+import 'package:tictactoe/data/endpoint/{{name.snakeCase}}.endpoint.dart';
 
 part '{{name.snakeCase}}.endpoint.provider.g.dart';
 

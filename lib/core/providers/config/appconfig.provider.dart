@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/foundation/config/app_config.dart';
-import 'package:starter_kit/foundation/config/impl/app_config.dev.dart';
-import 'package:starter_kit/foundation/config/impl/app_config.mock.dart';
-import 'package:starter_kit/foundation/config/impl/app_config.prod.dart';
-import 'package:starter_kit/foundation/config/impl/app_config.staging.dart';
-import 'package:starter_kit/foundation/config/impl/app_config.test.dart';
-import 'package:starter_kit/foundation/enum/environment.enum.dart';
+import 'package:tictactoe/foundation/config/app_config.dart';
+import 'package:tictactoe/foundation/config/impl/app_config.dev.dart';
+import 'package:tictactoe/foundation/config/impl/app_config.mock.dart';
+import 'package:tictactoe/foundation/config/impl/app_config.prod.dart';
+import 'package:tictactoe/foundation/config/impl/app_config.staging.dart';
+import 'package:tictactoe/foundation/config/impl/app_config.test.dart';
+import 'package:tictactoe/foundation/enum/environment.enum.dart';
 
 part 'appconfig.provider.g.dart';
 

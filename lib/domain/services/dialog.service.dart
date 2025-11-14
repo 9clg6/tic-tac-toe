@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:starter_kit/core/localization/generated/locale_keys.g.dart';
-import 'package:starter_kit/foundation/routing/app_router.dart';
-import 'package:starter_kit/presentation/widgets/custom_button.dart';
-import 'package:starter_kit/presentation/widgets/text_variant.dart';
+import 'package:tictactoe/core/localization/generated/locale_keys.g.dart';
+import 'package:tictactoe/foundation/routing/app_router.dart';
+import 'package:tictactoe/presentation/widgets/custom_button.dart';
+import 'package:tictactoe/presentation/widgets/text_variant.dart';
 
 /// Dialog service
 class DialogService {

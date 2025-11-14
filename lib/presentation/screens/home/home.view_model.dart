@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/core/providers/services/game.service.provider.dart';
-import 'package:starter_kit/domain/entities/case_coordinates.entity.dart';
-import 'package:starter_kit/domain/entities/grid.entity.dart';
-import 'package:starter_kit/domain/services/game.service.dart';
-import 'package:starter_kit/presentation/screens/home/home.state.dart';
+import 'package:tictactoe/core/providers/services/game.service.provider.dart';
+import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/grid.entity.dart';
+import 'package:tictactoe/domain/services/game.service.dart';
+import 'package:tictactoe/presentation/screens/home/home.state.dart';
 
 part 'home.view_model.g.dart';
 

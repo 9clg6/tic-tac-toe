@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:starter_kit/data/datasources/local/authentication.local.data_source.dart';
-import 'package:starter_kit/data/model/local/auth.local.model.dart';
-import 'package:starter_kit/foundation/interfaces/storage.interface.dart';
+import 'package:tictactoe/data/datasources/local/authentication.local.data_source.dart';
+import 'package:tictactoe/data/model/local/auth.local.model.dart';
+import 'package:tictactoe/foundation/interfaces/storage.interface.dart';
 
 /// Authentication Data Source
 final class AuthenticationLocalDataSourceImpl

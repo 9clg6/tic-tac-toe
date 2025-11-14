@@ -1,10 +1,10 @@
-import 'package:starter_kit/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.dart';
+import 'package:tictactoe/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.dart';
 {{#dependency_import}}
 import '{{dependency_import}}';
 {{/dependency_import}}{{^dependency_import}}{{#is_remote}}
-import 'package:starter_kit/data/endpoint/{{name.snakeCase}}.endpoint.dart';
+import 'package:tictactoe/data/endpoint/{{name.snakeCase}}.endpoint.dart';
 {{/is_remote}}{{^is_remote}}
-import 'package:starter_kit/foundation/interfaces/storage.interface.dart';
+import 'package:tictactoe/foundation/interfaces/storage.interface.dart';
 {{/is_remote}}{{/dependency_import}}
 
 /// {{name.pascalCase}} {{#is_remote}}Remote{{/is_remote}}{{^is_remote}}Local{{/is_remote}} Data Source

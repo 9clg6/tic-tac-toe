@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:starter_kit/foundation/config/app_config.dart';
+import 'package:tictactoe/foundation/config/app_config.dart';
 
 /// Dio client
 class DioClient extends DioForNative {

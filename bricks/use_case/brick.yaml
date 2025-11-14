@@ -23,7 +23,7 @@ vars:
   repository_import:
     type: string
     description: Import path for the repository class.
-    default: package:starter_kit/domain/repositories/example.repository.dart
+    default: package:tictactoe/domain/repositories/example.repository.dart
   repository_provider:
     type: string
     description: Riverpod provider resolving the repository.
@@ -31,7 +31,7 @@ vars:
   repository_provider_import:
     type: string
     description: Import path for the repository provider.
-    default: package:starter_kit/core/providers/data/repositories/example.repository.provider.dart
+    default: package:tictactoe/core/providers/data/repositories/example.repository.provider.dart
   method_name:
     type: string
     description: Repository method invoked by the use case.

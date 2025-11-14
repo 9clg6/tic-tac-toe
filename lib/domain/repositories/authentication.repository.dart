@@ -1,5 +1,5 @@
-import 'package:starter_kit/domain/entities/auth.entity.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
 
 /// Authentication Repository
 abstract class AuthenticationRepository {

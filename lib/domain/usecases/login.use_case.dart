@@ -1,7 +1,7 @@
-import 'package:starter_kit/domain/entities/auth.entity.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
-import 'package:starter_kit/domain/repositories/authentication.repository.dart';
-import 'package:starter_kit/foundation/interfaces/future.usecases.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
+import 'package:tictactoe/domain/repositories/authentication.repository.dart';
+import 'package:tictactoe/foundation/interfaces/future.usecases.dart';
 
 /// Login Use Case
 class LoginUseCase

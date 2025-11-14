@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starter_kit/core/providers/services/user.service.provider.dart';
-import 'package:starter_kit/presentation/screens/authentication/authentication.screen.dart';
-import 'package:starter_kit/presentation/screens/home/home.screen.dart';
+import 'package:tictactoe/core/providers/services/user.service.provider.dart';
+import 'package:tictactoe/presentation/screens/authentication/authentication.screen.dart';
+import 'package:tictactoe/presentation/screens/home/home.screen.dart';
 
 part 'app_router.gr.dart';
 

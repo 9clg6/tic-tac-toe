@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/core/providers/core/usecases/get_user.use_case.provider.dart';
-import 'package:starter_kit/core/providers/core/usecases/login.use_case.provider.dart';
-import 'package:starter_kit/core/providers/core/usecases/logout.use_case.provider.dart';
-import 'package:starter_kit/core/providers/core/usecases/save_auth.use_case.provider.dart';
-import 'package:starter_kit/core/providers/services/dialog.service.provider.dart';
-import 'package:starter_kit/core/providers/services/navigation.service.provider.dart';
-import 'package:starter_kit/domain/services/user.service.dart';
+import 'package:tictactoe/core/providers/core/usecases/get_user.use_case.provider.dart';
+import 'package:tictactoe/core/providers/core/usecases/login.use_case.provider.dart';
+import 'package:tictactoe/core/providers/core/usecases/logout.use_case.provider.dart';
+import 'package:tictactoe/core/providers/core/usecases/save_auth.use_case.provider.dart';
+import 'package:tictactoe/core/providers/services/dialog.service.provider.dart';
+import 'package:tictactoe/core/providers/services/navigation.service.provider.dart';
+import 'package:tictactoe/domain/services/user.service.dart';
 
 part 'user.service.provider.g.dart';
 

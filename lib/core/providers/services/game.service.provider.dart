@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/domain/services/game.service.dart';
+import 'package:tictactoe/domain/services/game.service.dart';
 
 part 'game.service.provider.g.dart';
 

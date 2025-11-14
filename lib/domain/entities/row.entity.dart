@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:starter_kit/domain/entities/case_coordinates.entity.dart';
-import 'package:starter_kit/domain/entities/cell.entity.dart';
-import 'package:starter_kit/foundation/enum/form.enum.dart';
+import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 part 'row.entity.freezed.dart';
 

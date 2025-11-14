@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starter_kit/domain/entities/grid.entity.dart';
-import 'package:starter_kit/foundation/enum/form.enum.dart' as form_enum;
-import 'package:starter_kit/presentation/screens/home/home.state.dart';
-import 'package:starter_kit/presentation/screens/home/home.view_model.dart';
-import 'package:starter_kit/presentation/widgets/custom_button.dart';
+import 'package:tictactoe/domain/entities/grid.entity.dart';
+import 'package:tictactoe/foundation/enum/form.enum.dart' as form_enum;
+import 'package:tictactoe/presentation/screens/home/home.state.dart';
+import 'package:tictactoe/presentation/screens/home/home.view_model.dart';
+import 'package:tictactoe/presentation/widgets/custom_button.dart';
 
 /// Home Screem
 @RoutePage()

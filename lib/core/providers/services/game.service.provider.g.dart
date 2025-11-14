@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'kernel.provider.dart';
+part of 'game.service.provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$kernelHash() => r'7e0b453e768fd98d1ee0690c8d245c8cda15667c';
+String _$gameServiceHash() => r'cd742b54f0c268ffea81fbd31ecae3ffd749d1fe';
 
-/// Kernel provider
+/// Provides the singleton instance of [GameService].
 ///
-/// Copied from [kernel].
-@ProviderFor(kernel)
-final kernelProvider = FutureProvider<void>.internal(
-  kernel,
-  name: r'kernelProvider',
+/// Copied from [gameService].
+@ProviderFor(gameService)
+final gameServiceProvider = Provider<GameService>.internal(
+  gameService,
+  name: r'gameServiceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$kernelHash,
+      : _$gameServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef KernelRef = FutureProviderRef<void>;
+typedef GameServiceRef = ProviderRef<GameService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

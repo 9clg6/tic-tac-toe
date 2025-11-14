@@ -1,20 +1,18 @@
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:starter_kit/domain/entities/grid.entity.dart';
 
-part 'home.state.g.dart';
+part 'home.state.freezed.dart';
 
 /// Home state
-@CopyWith()
-class HomeState with EquatableMixin {
+@freezed
+abstract class HomeState with _$HomeState {
   /// Constructor
-  HomeState({required this.isLoading});
+  const factory HomeState({@Default(true) bool isLoading, Grid? grid}) =
+      _HomeState;
+
+  const HomeState._();
 
   /// Initial Constructor
-  HomeState.initial({this.isLoading = true});
-
-  /// Whether the home screen is loading
-  final bool isLoading;
-
-  @override
-  List<Object?> get props => <Object?>[isLoading];
+  factory HomeState.initial({bool isLoading = true}) =>
+      HomeState(isLoading: isLoading);
 }

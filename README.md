@@ -8,9 +8,12 @@ Différents fichiers Markdown sont disponibles regroupant les informations liés
 - ROADMAP.md : Roadmap contenant objectifs et priorités pour le développement de ce projet
 - CHANGELOG.md : Fichiers regroupant et résumants les ajouts et correctifs contenu dans les nouvelles versions
 
-## Doutes et auto-critique
+## Carnet de route
 
-Ici je résumerais mes doutes et auto-critiques sur mon code au fil du développement
+Ici je prendrais quelques notes sur l'avancée du développement 
+
+(v1) 14/11 - 23:43 : J'ai optimisé le calcul de vainqueur de 300 microsecondes environ, passant de 1200 à 995. Pour y arriver, j'ai, au lieu de chercher les combinaisons sur chaque case lors de chaque changement, utilisé seulement la dernière action joueur. Puisque au final la dernière action est la seule qui peut déclencher une victoire. 
+Je pense pouvoir encore optimiser mon algorithme, en n'utilisant plus les "voisins des cases" avec liste d'exclusion, mais plutôt en splittant mes données en fonction des symboles : croix ensembles, ronds ensembles... et comparer leurs coordonnées directement en cherchant des match dans toutes les directions.
 
 ## IA
 

@@ -4,7 +4,6 @@ import 'package:starter_kit/domain/entities/cell.entity.dart';
 import 'package:starter_kit/domain/entities/grid.entity.dart';
 import 'package:starter_kit/domain/entities/player_action.entity.dart';
 import 'package:starter_kit/domain/entities/players.entity.dart';
-import 'package:starter_kit/domain/entities/row.entity.dart';
 import 'package:starter_kit/foundation/enum/form.enum.dart';
 
 /// Game service, used to handle actions and party
@@ -60,6 +59,7 @@ final class GameService {
     grid = Grid.generate();
     _gridSubject.add(grid!);
     _lastAction = null;
+    winner = null;
     isGameEnded = false;
     players = <Players>[Players(id: 1), Players(id: 2)];
   }
@@ -112,7 +112,12 @@ final class GameService {
     grid = grid!.setFormOnCoordinates(action.form, action.coordinates);
     _lastAction = action;
     _checkEnd();
+
+    final Stopwatch stopwatch = Stopwatch()..start();
     _checkWinner(grid!);
+    stopwatch.stop();
+    if (winner != null)
+      print('Temps écoulé: ${stopwatch.elapsed.inMicroseconds} microsecondes');
     _gridSubject.add(grid!);
   }
 
@@ -125,55 +130,44 @@ final class GameService {
   /// on parcours les deux listes en chercheant à chaque fois des coordonnées
   /// cote a cote
   void _checkWinner(Grid board) {
-    final List<Cell> excludeList = <Cell>[];
-    for (int i = 0; i < board.columnsRowsAmount; i++) {
-      final Row currentRow = board.grid[i]!;
-      for (int y = 0; y < currentRow.columns.length; y++) {
-        if (isGameEnded) return;
+    final List<CaseCoordinates> excludeList = <CaseCoordinates>[];
+    if (isGameEnded) return;
 
-        final Cell currentCell = currentRow.columns[y]!;
+    // Exclude already checked cells from neighbors
+    final List<Cell> neighbors = board
+        .getNeighborsOfCaseCoordinates(_lastAction!.coordinates)
+        .where((Cell cell) => !excludeList.contains(cell.coordinates))
+        .toList();
 
-        if (currentCell.form == Form.empty) continue;
+    for (final Cell neighbor in neighbors) {
+      if (neighbor.form != _lastAction!.form) continue;
+      final int deltaRow =
+          neighbor.coordinates.rowNumber - _lastAction!.coordinates.rowNumber;
+      final int deltaColumn =
+          neighbor.coordinates.columnNumber -
+          _lastAction!.coordinates.columnNumber;
 
-        // Exclude already checked cells from neighbors
-        final List<Cell> neighbors = board
-            .getNeighborsOfCaseCoordinates(currentCell.coordinates)
-            .where((Cell cell) => !excludeList.contains(cell))
-            .toList();
+      final int nextRow = neighbor.coordinates.rowNumber + deltaRow;
+      final int nextColumn = neighbor.coordinates.columnNumber + deltaColumn;
 
-        for (final Cell neighbor in neighbors) {
-          if (neighbor.form != currentCell.form) continue;
-          final int deltaRow =
-              neighbor.coordinates.rowNumber -
-              currentCell.coordinates.rowNumber;
-          final int deltaColumn =
-              neighbor.coordinates.columnNumber -
-              currentCell.coordinates.columnNumber;
+      final bool isInsideBoard = _isWithinBounds(
+        nextRow,
+        nextColumn,
+        board.columnsRowsAmount,
+      );
 
-          final int nextRow = neighbor.coordinates.rowNumber + deltaRow;
-          final int nextColumn =
-              neighbor.coordinates.columnNumber + deltaColumn;
+      if (!isInsideBoard) continue;
 
-          final bool isInsideBoard = _isWithinBounds(
-            nextRow,
-            nextColumn,
-            board.columnsRowsAmount,
-          );
-
-          if (!isInsideBoard) continue;
-
-          final Form lastCell = board.getFormByCaseCoordinates(
-            CaseCoordinates(rowNumber: nextRow, columnNumber: nextColumn),
-          );
-          if (lastCell == neighbor.form) {
-            isGameEnded = true;
-            winner = _lastAction?.playerNumber;
-            print('Victoire !');
-          }
-        }
-        excludeList.add(currentCell);
+      final Form lastCell = board.getFormByCaseCoordinates(
+        CaseCoordinates(rowNumber: nextRow, columnNumber: nextColumn),
+      );
+      if (lastCell == neighbor.form) {
+        isGameEnded = true;
+        winner = _lastAction?.playerNumber;
+        print('Victoire !');
       }
     }
+    excludeList.add(_lastAction!.coordinates);
   }
 
   bool _isWithinBounds(int row, int column, int maxSize) {

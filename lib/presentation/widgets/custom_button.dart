@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs Too much property
 
 import 'package:flutter/material.dart';
-import 'package:starter_kit/presentation/widgets/text_variant.dart';
+import 'package:tictactoe/presentation/widgets/text_variant.dart';
 
 /// Custom Button
 class CustomButton extends StatelessWidget {

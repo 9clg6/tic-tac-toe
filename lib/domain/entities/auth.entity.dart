@@ -1,7 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:starter_kit/data/model/local/auth.local.model.dart';
-import 'package:starter_kit/data/model/remote/auth.remote.model.dart';
+import 'package:tictactoe/data/model/local/auth.local.model.dart';
+import 'package:tictactoe/data/model/remote/auth.remote.model.dart';
 
 part 'auth.entity.g.dart';
 

@@ -1,5 +1,5 @@
 
-import 'package:starter_kit/foundation/enum/environment.enum.dart';
+import 'package:tictactoe/foundation/enum/environment.enum.dart';
 
 /// App config
 abstract class AppConfig {

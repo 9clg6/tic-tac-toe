@@ -1,4 +1,4 @@
-import 'package:starter_kit/foundation/interfaces/future.usecases.dart';
+import 'package:tictactoe/foundation/interfaces/future.usecases.dart';
 import '{{repository_import}}';
 {{#result_import}}
 import '{{result_import}}';

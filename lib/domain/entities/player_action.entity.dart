@@ -1,5 +1,5 @@
-import 'package:starter_kit/domain/entities/case_coordinates.entity.dart';
-import 'package:starter_kit/foundation/enum/form.enum.dart';
+import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 /// Represents an action taken by a player at a specific cell on the grid.
 ///

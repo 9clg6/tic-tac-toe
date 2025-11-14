@@ -3,12 +3,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 {{#dependency_provider_import}}
 import '{{dependency_provider_import}}';
 {{/dependency_provider_import}}{{^dependency_provider_import}}{{#is_remote}}
-import 'package:starter_kit/core/providers/data/endpoints/{{name.snakeCase}}.endpoint.provider.dart';
+import 'package:tictactoe/core/providers/data/endpoints/{{name.snakeCase}}.endpoint.provider.dart';
 {{/is_remote}}{{^is_remote}}
-import 'package:starter_kit/core/providers/data/storages/{{name.snakeCase}}.storage.provider.dart';
+import 'package:tictactoe/core/providers/data/storages/{{name.snakeCase}}.storage.provider.dart';
 {{/is_remote}}{{/dependency_provider_import}}
-import 'package:starter_kit/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.dart';
-import 'package:starter_kit/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/impl/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.impl.dart';
+import 'package:tictactoe/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.dart';
+import 'package:tictactoe/data/datasources/{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}/impl/{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.impl.dart';
 
 part '{{name.snakeCase}}.{{#is_remote}}remote{{/is_remote}}{{^is_remote}}local{{/is_remote}}.data_source.provider.g.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:starter_kit/foundation/interfaces/results.usecases.dart';
-import 'package:starter_kit/foundation/interfaces/usecase.interfaces.dart';
+import 'package:tictactoe/foundation/interfaces/results.usecases.dart';
+import 'package:tictactoe/foundation/interfaces/usecase.interfaces.dart';
 
 /// [FutureUseCase]
 abstract class FutureUseCase<T> implements BaseUseCase<Future<ResultState<T>>> {

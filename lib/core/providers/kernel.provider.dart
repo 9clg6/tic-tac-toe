@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/core/providers/config/appconfig.provider.dart';
-import 'package:starter_kit/core/providers/data/datasources/local/authentication.local.data_source.provider.dart';
-import 'package:starter_kit/core/providers/data/repositories/authentication.repository.provider.dart';
-import 'package:starter_kit/core/providers/data/storages/authentication.secure_storage.provider.dart';
-import 'package:starter_kit/foundation/config/app_config.dart';
+import 'package:tictactoe/core/providers/config/appconfig.provider.dart';
+import 'package:tictactoe/core/providers/data/datasources/local/authentication.local.data_source.provider.dart';
+import 'package:tictactoe/core/providers/data/repositories/authentication.repository.provider.dart';
+import 'package:tictactoe/core/providers/data/storages/authentication.secure_storage.provider.dart';
+import 'package:tictactoe/foundation/config/app_config.dart';
 
 part 'kernel.provider.g.dart';
 

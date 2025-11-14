@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
 
 part 'login.param.g.dart';
 

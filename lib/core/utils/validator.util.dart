@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:starter_kit/core/localization/generated/locale_keys.g.dart';
+import 'package:tictactoe/core/localization/generated/locale_keys.g.dart';
 
 /// Validator util
 final class ValidatorUtil {

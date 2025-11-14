@@ -1,9 +1,9 @@
 {{#has_remote}}
-import 'package:starter_kit/data/datasources/remote/{{name.snakeCase}}.remote.data_source.dart';
+import 'package:tictactoe/data/datasources/remote/{{name.snakeCase}}.remote.data_source.dart';
 {{/has_remote}}{{#has_local}}
-import 'package:starter_kit/data/datasources/local/{{name.snakeCase}}.local.data_source.dart';
+import 'package:tictactoe/data/datasources/local/{{name.snakeCase}}.local.data_source.dart';
 {{/has_local}}
-import 'package:starter_kit/domain/repositories/{{name.snakeCase}}.repository.dart';
+import 'package:tictactoe/domain/repositories/{{name.snakeCase}}.repository.dart';
 
 /// {{name.pascalCase}} Repository
 final class {{name.pascalCase}}RepositoryImpl

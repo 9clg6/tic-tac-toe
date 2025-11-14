@@ -1,5 +1,5 @@
-import 'package:starter_kit/data/model/remote/auth.remote.model.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
+import 'package:tictactoe/data/model/remote/auth.remote.model.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
 
 /// Authentication Data Source
 abstract class AuthenticationRemoteDataSource {

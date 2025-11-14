@@ -1,4 +1,4 @@
-import 'package:starter_kit/data/model/remote/user.remote.model.dart';
+import 'package:tictactoe/data/model/remote/user.remote.model.dart';
 
 /// User Remote Data Source
 abstract class UserRemoteDataSource {

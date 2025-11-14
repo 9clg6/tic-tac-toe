@@ -1,10 +1,10 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:starter_kit/domain/entities/case_coordinates.entity.dart';
-import 'package:starter_kit/domain/entities/cell.entity.dart';
-import 'package:starter_kit/domain/entities/grid.entity.dart';
-import 'package:starter_kit/domain/entities/player_action.entity.dart';
-import 'package:starter_kit/domain/entities/players.entity.dart';
-import 'package:starter_kit/foundation/enum/form.enum.dart';
+import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/domain/entities/grid.entity.dart';
+import 'package:tictactoe/domain/entities/player_action.entity.dart';
+import 'package:tictactoe/domain/entities/players.entity.dart';
+import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 /// Game service, used to handle actions and party
 final class GameService {

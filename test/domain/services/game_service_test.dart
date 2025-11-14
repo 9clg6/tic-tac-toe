@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:starter_kit/domain/entities/case_coordinates.entity.dart';
-import 'package:starter_kit/domain/entities/grid.entity.dart';
-import 'package:starter_kit/domain/services/game.service.dart';
-import 'package:starter_kit/foundation/enum/form.enum.dart';
+import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/grid.entity.dart';
+import 'package:tictactoe/domain/services/game.service.dart';
+import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 void main() {
   group('GameService', () {

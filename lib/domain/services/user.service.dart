@@ -4,18 +4,18 @@ import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:starter_kit/core/localization/generated/locale_keys.g.dart';
-import 'package:starter_kit/data/storages/user_preferences.storage.dart';
-import 'package:starter_kit/domain/entities/auth.entity.dart';
-import 'package:starter_kit/domain/entities/user.entity.dart';
-import 'package:starter_kit/domain/params/login.param.dart';
-import 'package:starter_kit/domain/services/dialog.service.dart';
-import 'package:starter_kit/domain/services/navigation.service.dart';
-import 'package:starter_kit/domain/usecases/get_user.use_case.dart';
-import 'package:starter_kit/domain/usecases/login.use_case.dart';
-import 'package:starter_kit/domain/usecases/logout.use_case.dart';
-import 'package:starter_kit/domain/usecases/save_auth.use_case.dart';
-import 'package:starter_kit/foundation/interfaces/results.usecases.dart';
+import 'package:tictactoe/core/localization/generated/locale_keys.g.dart';
+import 'package:tictactoe/data/storages/user_preferences.storage.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/entities/user.entity.dart';
+import 'package:tictactoe/domain/params/login.param.dart';
+import 'package:tictactoe/domain/services/dialog.service.dart';
+import 'package:tictactoe/domain/services/navigation.service.dart';
+import 'package:tictactoe/domain/usecases/get_user.use_case.dart';
+import 'package:tictactoe/domain/usecases/login.use_case.dart';
+import 'package:tictactoe/domain/usecases/logout.use_case.dart';
+import 'package:tictactoe/domain/usecases/save_auth.use_case.dart';
+import 'package:tictactoe/foundation/interfaces/results.usecases.dart';
 
 /// User service
 class UserService {

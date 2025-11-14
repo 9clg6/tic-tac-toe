@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '{{repository_provider_import}}';
 import '{{repository_import}}';
-import 'package:starter_kit/domain/usecases/{{name.snakeCase}}.use_case.dart';
+import 'package:tictactoe/domain/usecases/{{name.snakeCase}}.use_case.dart';
 
 part '{{name.snakeCase}}.use_case.provider.g.dart';
 

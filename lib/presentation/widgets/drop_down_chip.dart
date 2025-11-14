@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:starter_kit/presentation/widgets/tappable_componenent.dart';
-import 'package:starter_kit/presentation/widgets/text_variant.dart';
+import 'package:tictactoe/presentation/widgets/tappable_componenent.dart';
+import 'package:tictactoe/presentation/widgets/text_variant.dart';
 
 /// A drop down chip
 class DropDownChip extends StatelessWidget {

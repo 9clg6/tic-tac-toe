@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/core/providers/presentation/router.provider.dart';
-import 'package:starter_kit/domain/services/dialog.service.dart';
-import 'package:starter_kit/foundation/routing/app_router.dart';
+import 'package:tictactoe/core/providers/presentation/router.provider.dart';
+import 'package:tictactoe/domain/services/dialog.service.dart';
+import 'package:tictactoe/foundation/routing/app_router.dart';
 
 part 'dialog.service.provider.g.dart';
 

@@ -23,7 +23,7 @@ vars:
   client_provider_import:
     type: string
     description: Import path for the Dio client provider.
-    default: package:starter_kit/core/providers/data/clients/dio_client.provider.dart
+    default: package:tictactoe/core/providers/data/clients/dio_client.provider.dart
   client_class:
     type: string
     description: Dio client class injected into the endpoint.
@@ -31,4 +31,4 @@ vars:
   client_class_import:
     type: string
     description: Import path for the Dio client class.
-    default: package:starter_kit/data/clients/dio.client.dart
+    default: package:tictactoe/data/clients/dio.client.dart

@@ -1,5 +1,5 @@
-import 'package:starter_kit/foundation/config/app_config.dart';
-import 'package:starter_kit/foundation/enum/environment.enum.dart';
+import 'package:tictactoe/foundation/config/app_config.dart';
+import 'package:tictactoe/foundation/enum/environment.enum.dart';
 
 /// App config dev
 final class AppConfigTest implements AppConfig {

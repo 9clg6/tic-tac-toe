@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:starter_kit/domain/entities/grid.entity.dart';
+import 'package:tictactoe/domain/entities/grid.entity.dart';
 
 part 'home.state.freezed.dart';
 

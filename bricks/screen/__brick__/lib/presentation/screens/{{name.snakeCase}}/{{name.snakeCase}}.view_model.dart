@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/presentation/screens/{{name.snakeCase}}/{{name.snakeCase}}.state.dart';
+import 'package:tictactoe/presentation/screens/{{name.snakeCase}}/{{name.snakeCase}}.state.dart';
 
 part '{{name.snakeCase}}.view_model.g.dart';
 

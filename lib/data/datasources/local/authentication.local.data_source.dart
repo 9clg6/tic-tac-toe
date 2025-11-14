@@ -1,4 +1,4 @@
-import 'package:starter_kit/data/model/local/auth.local.model.dart';
+import 'package:tictactoe/data/model/local/auth.local.model.dart';
 
 /// Authentication Data Source
 abstract class AuthenticationLocalDataSource {

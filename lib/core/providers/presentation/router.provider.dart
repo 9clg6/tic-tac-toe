@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/foundation/routing/app_router.dart';
+import 'package:tictactoe/foundation/routing/app_router.dart';
 
 part 'router.provider.g.dart';
 

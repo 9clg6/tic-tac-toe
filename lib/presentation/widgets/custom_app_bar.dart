@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_kit/presentation/widgets/text_variant.dart';
+import 'package:tictactoe/presentation/widgets/text_variant.dart';
 
 /// Custom app bar
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

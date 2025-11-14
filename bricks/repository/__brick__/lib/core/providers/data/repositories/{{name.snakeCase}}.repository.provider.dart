@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-{{#has_remote}}import 'package:starter_kit/core/providers/data/datasources/remote/{{name.snakeCase}}.remote.data_source.provider.dart';
-import 'package:starter_kit/data/datasources/remote/{{name.snakeCase}}.remote.data_source.dart';
-{{/has_remote}}{{#has_local}}import 'package:starter_kit/core/providers/data/datasources/local/{{name.snakeCase}}.local.data_source.provider.dart';
-import 'package:starter_kit/data/datasources/local/{{name.snakeCase}}.local.data_source.dart';
-{{/has_local}}import 'package:starter_kit/data/repositories/{{name.snakeCase}}.repository.impl.dart';
-import 'package:starter_kit/domain/repositories/{{name.snakeCase}}.repository.dart';
+{{#has_remote}}import 'package:tictactoe/core/providers/data/datasources/remote/{{name.snakeCase}}.remote.data_source.provider.dart';
+import 'package:tictactoe/data/datasources/remote/{{name.snakeCase}}.remote.data_source.dart';
+{{/has_remote}}{{#has_local}}import 'package:tictactoe/core/providers/data/datasources/local/{{name.snakeCase}}.local.data_source.provider.dart';
+import 'package:tictactoe/data/datasources/local/{{name.snakeCase}}.local.data_source.dart';
+{{/has_local}}import 'package:tictactoe/data/repositories/{{name.snakeCase}}.repository.impl.dart';
+import 'package:tictactoe/domain/repositories/{{name.snakeCase}}.repository.dart';
 
 part '{{name.snakeCase}}.repository.provider.g.dart';
 

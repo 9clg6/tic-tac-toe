@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:starter_kit/core/providers/data/clients/dio_client.provider.dart';
-import 'package:starter_kit/data/clients/dio.client.dart';
-import 'package:starter_kit/data/endpoint/user.endpoint.dart';
+import 'package:tictactoe/core/providers/data/clients/dio_client.provider.dart';
+import 'package:tictactoe/data/clients/dio.client.dart';
+import 'package:tictactoe/data/endpoint/user.endpoint.dart';
 
 part 'user.endpoint.provider.g.dart';
 

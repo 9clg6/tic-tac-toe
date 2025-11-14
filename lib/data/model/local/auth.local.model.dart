@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:starter_kit/domain/entities/auth.entity.dart';
+import 'package:tictactoe/domain/entities/auth.entity.dart';
 
 part 'auth.local.model.g.dart';
 

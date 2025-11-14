@@ -4,6 +4,9 @@ analyzer:
     strict-inference: true
     strict-raw-types: true
 
+  enable-experiment:
+    - dot-shorthands
+
   errors:
     close_sinks: ignore
     missing_required_param: error

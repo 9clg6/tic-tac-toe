@@ -16,10 +16,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 0.0.1
+version: 0.0.2
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -38,6 +38,7 @@ dependencies:
   dio: ^5.8.0+1 
   retrofit: ^4.4.2
   json_annotation: ^4.9.0
+  freezed_annotation: ^3.1.0
   copy_with_extension: ^6.0.1
   flutter_riverpod: ^2.6.1
   auto_route: ^10.0.0
@@ -81,6 +82,7 @@ dev_dependencies:
   custom_lint: ^0.7.5
   riverpod_lint: ^2.6.5
   flutter_flavorizr: ^2.4.1
+  freezed: 3.1.0
 
   # flutter_gen:
   #   output: lib/app/assets

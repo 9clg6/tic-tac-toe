@@ -1,3 +1,11 @@
+# 0.0.2
+- Game service + providers
+- Freezed added
+- Winner finder algorithm
+- Enable shorthand
+- Comment kernel 
+
+
 # 0.0.1
 - Initial commit
 - Use existing template (made by me [https://github.com/9clg6/flutter_init]here) to avoid boilerplate

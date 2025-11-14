@@ -11,7 +11,8 @@
             "type": "dart",
             "args": [
                 "--flavor=dev",
-                "--dart-define-from-file=.env.dev.json"
+                "--dart-define-from-file=.env.dev.json",
+                "--enable-experiment=dot-shorthands",
             ]
         },
         {
@@ -21,7 +22,8 @@
             "type": "dart",
             "args": [
                 "--flavor=staging",
-                "--dart-define-from-file=.env.staging.json"
+                "--dart-define-from-file=.env.staging.json",
+                "--enable-experiment=dot-shorthands"
             ]
         },
         {
@@ -32,7 +34,8 @@
             "flutterMode": "debug",
             "args": [
                 "--flavor=prod",
-                "--dart-define-from-file=.env.prod.json"
+                "--dart-define-from-file=.env.prod.json",
+                "--enable-experiment=dot-shorthands"
             ]
         }
     ]

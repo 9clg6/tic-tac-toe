@@ -1,3 +1,8 @@
+# 0.0.3
+- Winner finder algorithm v2 (neighbors -> filter by form)
+- Refacto
+- Tests
+
 # 0.0.2
 - Game service + providers
 - Freezed added

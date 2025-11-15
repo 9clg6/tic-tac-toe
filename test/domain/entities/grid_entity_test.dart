@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
@@ -30,7 +30,7 @@ void main() {
       'mutating the original grid',
       () {
         final Grid grid = Grid.generate();
-        const CaseCoordinates target = CaseCoordinates(
+        const CellCoordinates target = CellCoordinates(
           rowNumber: 1,
           columnNumber: 2,
         );
@@ -53,7 +53,7 @@ void main() {
       'setFormOnCoordinates ignores a move when the cell is already occupied',
       () {
         final Grid grid = Grid.generate();
-        const CaseCoordinates target = CaseCoordinates(
+        const CellCoordinates target = CellCoordinates(
           rowNumber: 0,
           columnNumber: 1,
         );
@@ -73,18 +73,20 @@ void main() {
 
     test('getNeighborsOfCaseCoordinates returns only valid neighbors', () {
       final Grid grid = Grid.generate();
-      const CaseCoordinates center = CaseCoordinates(
+      const CellCoordinates center = CellCoordinates(
         rowNumber: 1,
         columnNumber: 1,
       );
-      const CaseCoordinates corner = CaseCoordinates(
+      const CellCoordinates corner = CellCoordinates(
         rowNumber: 0,
         columnNumber: 0,
       );
 
+      // ignore: deprecated_member_use_from_same_package preserve deprecated tests fto see evolution of the algo
       final List<Cell> neighborsCenter = grid.getNeighborsOfCaseCoordinates(
         center,
       );
+      // ignore: deprecated_member_use_from_same_package preserve deprecated tests fto see evolution of the algo
       final List<Cell> neighborsCorner = grid.getNeighborsOfCaseCoordinates(
         corner,
       );

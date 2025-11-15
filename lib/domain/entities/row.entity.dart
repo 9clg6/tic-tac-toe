@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 part 'row.entity.freezed.dart';
@@ -27,7 +27,7 @@ abstract class Row with _$Row {
 
     for (int i = 0; i < columnRowSize; i++) {
       tempColumns[i] = Cell(
-        coordinates: CaseCoordinates(
+        coordinates: CellCoordinates(
           rowNumber: rowNumber,
           columnNumber: i,
         ),

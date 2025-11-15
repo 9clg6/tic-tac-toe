@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/domain/services/game.service.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
@@ -24,12 +24,12 @@ void main() {
     });
 
     test('play alternates turns while filling the grid', () {
-      service.play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 0));
+      service.play(1, const CellCoordinates(rowNumber: 0, columnNumber: 0));
 
       expect(service.currentPlayerTurn, equals(2));
       expect(service.grid!.grid[0]!.columns[0]!.form, equals(Form.cross));
 
-      service.play(2, const CaseCoordinates(rowNumber: 1, columnNumber: 1));
+      service.play(2, const CellCoordinates(rowNumber: 1, columnNumber: 1));
 
       expect(service.currentPlayerTurn, equals(1));
       expect(service.grid!.grid[1]!.columns[1]!.form, equals(Form.circle));
@@ -37,11 +37,11 @@ void main() {
 
     test('detects a horizontal victory for player 1', () {
       service
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 0))
-        ..play(2, const CaseCoordinates(rowNumber: 1, columnNumber: 0))
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 1))
-        ..play(2, const CaseCoordinates(rowNumber: 1, columnNumber: 1))
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 2));
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 0))
+        ..play(2, const CellCoordinates(rowNumber: 1, columnNumber: 0))
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 1))
+        ..play(2, const CellCoordinates(rowNumber: 1, columnNumber: 1))
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 2));
 
       expect(service.isGameEnded, isTrue);
       expect(service.winner, equals(1));
@@ -49,12 +49,12 @@ void main() {
 
     test('detects a vertical victory for player 2', () {
       service
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 0))
-        ..play(2, const CaseCoordinates(rowNumber: 0, columnNumber: 1))
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 2))
-        ..play(2, const CaseCoordinates(rowNumber: 1, columnNumber: 1))
-        ..play(1, const CaseCoordinates(rowNumber: 2, columnNumber: 2))
-        ..play(2, const CaseCoordinates(rowNumber: 2, columnNumber: 1));
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 0))
+        ..play(2, const CellCoordinates(rowNumber: 0, columnNumber: 1))
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 2))
+        ..play(2, const CellCoordinates(rowNumber: 1, columnNumber: 1))
+        ..play(1, const CellCoordinates(rowNumber: 2, columnNumber: 2))
+        ..play(2, const CellCoordinates(rowNumber: 2, columnNumber: 1));
 
       expect(service.isGameEnded, isTrue);
       expect(service.winner, equals(2));
@@ -62,11 +62,11 @@ void main() {
 
     test('detects a diagonal victory for player 1', () {
       service
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 0))
-        ..play(2, const CaseCoordinates(rowNumber: 0, columnNumber: 1))
-        ..play(1, const CaseCoordinates(rowNumber: 1, columnNumber: 1))
-        ..play(2, const CaseCoordinates(rowNumber: 0, columnNumber: 2))
-        ..play(1, const CaseCoordinates(rowNumber: 2, columnNumber: 2));
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 0))
+        ..play(2, const CellCoordinates(rowNumber: 0, columnNumber: 1))
+        ..play(1, const CellCoordinates(rowNumber: 1, columnNumber: 1))
+        ..play(2, const CellCoordinates(rowNumber: 0, columnNumber: 2))
+        ..play(1, const CellCoordinates(rowNumber: 2, columnNumber: 2));
 
       expect(service.isGameEnded, isTrue);
       expect(service.winner, equals(1));
@@ -74,14 +74,14 @@ void main() {
 
     test('stops accepting moves once a winner is found', () {
       service
-        ..play(1, const CaseCoordinates(rowNumber: 0, columnNumber: 0))
-        ..play(2, const CaseCoordinates(rowNumber: 0, columnNumber: 1))
-        ..play(1, const CaseCoordinates(rowNumber: 1, columnNumber: 1))
-        ..play(2, const CaseCoordinates(rowNumber: 0, columnNumber: 2))
-        ..play(1, const CaseCoordinates(rowNumber: 2, columnNumber: 2));
+        ..play(1, const CellCoordinates(rowNumber: 0, columnNumber: 0))
+        ..play(2, const CellCoordinates(rowNumber: 0, columnNumber: 1))
+        ..play(1, const CellCoordinates(rowNumber: 1, columnNumber: 1))
+        ..play(2, const CellCoordinates(rowNumber: 0, columnNumber: 2))
+        ..play(1, const CellCoordinates(rowNumber: 2, columnNumber: 2));
 
       final Grid? gridAfterWin = service.grid;
-      service.play(2, const CaseCoordinates(rowNumber: 2, columnNumber: 0));
+      service.play(2, const CellCoordinates(rowNumber: 2, columnNumber: 0));
 
       expect(service.grid, same(gridAfterWin));
     });

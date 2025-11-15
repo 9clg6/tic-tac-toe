@@ -19,7 +19,8 @@ Future<void> kernel(Ref ref) async {
   //   getAuthUseCase: await ref.watch(getAuthUseCaseProvider.future),
   // );
 
-  // final UserService userService = await ref.watch(userServiceProvider.future);
+  // final UserService userService = await 
+  //    ref.watch(userServiceProvider.future);
   // await userService.loadUser();
 
   ref.onDispose(() {

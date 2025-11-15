@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/domain/entities/player_action.entity.dart';
 import 'package:tictactoe/domain/entities/players.entity.dart';
@@ -27,8 +28,17 @@ final class GameService {
   /// Subject (Behavior) stream controller for grid updates
   final BehaviorSubject<Grid> _gridSubject = BehaviorSubject<Grid>();
 
+  /// Replay subject that stores the full history of player actions.
+  ReplaySubject<PlayerAction> _playerActionsSubject =
+      ReplaySubject<PlayerAction>();
+
   /// Exposed stream of grid updates
   Stream<Grid> get gridStream => _gridSubject.stream;
+
+  /// Exposed stream of players actions (replays full history to newcomers).
+  Stream<PlayerAction> get playersActionsStream => _playerActionsSubject.stream;
+
+  List<PlayerAction> get _playerActionsHistory => _playerActionsSubject.values;
 
   /// Getter for the current turn (player number: 1 or 2)
   int get currentPlayerTurn {
@@ -62,6 +72,7 @@ final class GameService {
     winner = null;
     isGameEnded = false;
     players = <Players>[Players(id: 1), Players(id: 2)];
+    _resetPlayerActionsHistory();
   }
 
   /// Join a player into the game
@@ -79,7 +90,7 @@ final class GameService {
   /// to play.
   ///
   /// Throws an [Exception] if the player number is not supported.
-  void play(int playerNumber, CaseCoordinates coordinates) {
+  void play(int playerNumber, CellCoordinates coordinates) {
     if (isGameEnded) return;
     final Form formToPlay = switch (playerNumber) {
       1 => Form.cross,
@@ -111,26 +122,35 @@ final class GameService {
 
     grid = grid!.setFormOnCoordinates(action.form, action.coordinates);
     _lastAction = action;
+    _playerActionsSubject.add(action);
     _checkEnd();
 
     final Stopwatch stopwatch = Stopwatch()..start();
-    _checkWinner(grid!);
+    _checkWinnerV2(grid!);
     stopwatch.stop();
-    if (winner != null)
-      print('Temps écoulé: ${stopwatch.elapsed.inMicroseconds} microsecondes');
+    if (winner != null) {
+      debugPrint(
+        'Temps écoulé: ${stopwatch.elapsed.inMicroseconds} microsecondes',
+      );
+    }
     _gridSubject.add(grid!);
   }
 
   /// Dispose controllers
   void dispose() {
     _gridSubject.close();
+    _playerActionsSubject.close();
   }
 
   /// v2 : au lieu de chercher tous les voisins, on split croix et ronds,
   /// on parcours les deux listes en chercheant à chaque fois des coordonnées
   /// cote a cote
+  @Deprecated(
+    "WinnerV2 looks to be more efficient (speed/consumtion) because it doesn't loop on every cell",
+  )
+  // ignore: unused_element deprecated method
   void _checkWinner(Grid board) {
-    final List<CaseCoordinates> excludeList = <CaseCoordinates>[];
+    final List<CellCoordinates> excludeList = <CellCoordinates>[];
     if (isGameEnded) return;
 
     // Exclude already checked cells from neighbors
@@ -159,15 +179,43 @@ final class GameService {
       if (!isInsideBoard) continue;
 
       final Form lastCell = board.getFormByCaseCoordinates(
-        CaseCoordinates(rowNumber: nextRow, columnNumber: nextColumn),
+        CellCoordinates(rowNumber: nextRow, columnNumber: nextColumn),
       );
       if (lastCell == neighbor.form) {
         isGameEnded = true;
         winner = _lastAction?.playerNumber;
-        print('Victoire !');
+        debugPrint('Victoire !');
       }
     }
     excludeList.add(_lastAction!.coordinates);
+  }
+
+  void _checkWinnerV2(Grid grid) {
+    if (_playerActionsHistory.length <= 4 || _lastAction == null) return;
+
+    final Set<CellCoordinates> playerCells = _playerActionsHistory
+        .where((PlayerAction cell) => cell.form == _lastAction!.form)
+        .map((PlayerAction cell) => cell.coordinates)
+        .toSet();
+
+    const List<List<int>> directions = <List<int>>[
+      <int>[1, 0], // vertical
+      <int>[0, 1], // horizontal
+      <int>[1, 1], // diagonal down-right
+      <int>[1, -1], // diagonal down-left
+    ];
+
+    for (final List<int> direction in directions) {
+      final int rowDelta = direction[0];
+      final int columnDelta = direction[1];
+
+      if (_hasStreak(playerCells, rowDelta, columnDelta)) {
+        winner = _lastAction!.playerNumber;
+        isGameEnded = true;
+        debugPrint('Victoire');
+        return;
+      }
+    }
   }
 
   bool _isWithinBounds(int row, int column, int maxSize) {
@@ -180,5 +228,36 @@ final class GameService {
         .isEmpty) {
       isGameEnded = true;
     }
+  }
+
+  void _resetPlayerActionsHistory() {
+    _playerActionsSubject.close();
+    _playerActionsSubject = ReplaySubject<PlayerAction>();
+  }
+
+  // TODO(clement): In future, make this algorithm more dynamic to handle
+  /// game mode which has 3+ steak to win
+  bool _hasStreak(
+    Set<CellCoordinates> coordinates,
+    int rowDelta,
+    int columnDelta,
+  ) {
+    for (final CellCoordinates coordinate in coordinates) {
+      final CellCoordinates second = CellCoordinates(
+        rowNumber: coordinate.rowNumber + rowDelta,
+        columnNumber: coordinate.columnNumber + columnDelta,
+      );
+
+      final CellCoordinates third = CellCoordinates(
+        rowNumber: coordinate.rowNumber + (rowDelta * 2),
+        columnNumber: coordinate.columnNumber + (columnDelta * 2),
+      );
+
+      if (coordinates.contains(second) && coordinates.contains(third)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }

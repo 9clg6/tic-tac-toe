@@ -18,3 +18,7 @@ Je pense pouvoir encore optimiser mon algorithme, en n'utilisant plus les "voisi
 ## IA
 
 Dans un soucis de transparence, je noterais ici les éléments générés par IA et la raison de cette utilisation
+
+## ReplaySubject
+
+- Je connaissais le BehaviorSubject pour garder une dernière valeur en mémoire mais l'IA m'a permis de connaitre le ReplaySubject, ce qui me permet de stocker l'historique des actions des joueurs et donc de trigger le checkWinner seulement au bon moment.

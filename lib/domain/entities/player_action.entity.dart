@@ -1,4 +1,4 @@
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 /// Represents an action taken by a player at a specific cell on the grid.
@@ -20,7 +20,7 @@ final class PlayerAction {
   final int playerNumber;
 
   /// The coordinates of the cell where the player acted.
-  final CaseCoordinates coordinates;
+  final CellCoordinates coordinates;
 
   /// The form played by the player (e.g., cross or circle).
   ///

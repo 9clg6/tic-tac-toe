@@ -39,7 +39,7 @@ class DialogService {
   ///
   /// Custom showCupertinoDialog wrapper that includes logging
   ///
-  // ignore: unused_element TODO REMOVE
+  // ignore: unused_element Todo
   Future<T?> _showCupertinoModalPopup<T>({
     required BuildContext context,
     required WidgetBuilder builder,
@@ -70,49 +70,45 @@ class DialogService {
 
     return _showCustomDialog(
       context: context,
-      builder:
-          (BuildContext context) => Center(
-            child: Material(
-              color: Colors.transparent,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 32,
+      builder: (BuildContext context) => Center(
+        child: Material(
+          color: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              decoration: BoxDecoration(
+                color: colorScheme.surfaceContainerHigh,
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  TextVariant(
+                    title,
+                    variantType: TextVariantType.headlineMedium,
                   ),
-                  decoration: BoxDecoration(
-                    color: colorScheme.surfaceContainerHigh,
-                    borderRadius: BorderRadius.circular(24),
+                  const Gap(8),
+                  TextVariant(description),
+                  const Gap(24),
+                  CustomButton(
+                    title: buttonTitle,
+                    onTap: onButtonTap ?? _appRouter.pop,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      TextVariant(
-                        title,
-                        variantType: TextVariantType.headlineMedium,
-                      ),
-                      const Gap(8),
-                      TextVariant(description),
-                      const Gap(24),
-                      CustomButton(
-                        title: buttonTitle,
-                        onTap: onButtonTap ?? _appRouter.pop,
-                      ),
-                      const Gap(16),
-                      if (buttonTitle2 != null)
-                        CustomButton(
-                          title: buttonTitle2,
-                          onTap: onButton2Tap,
-                          inverted: true,
-                          border: true,
-                        ),
-                    ],
-                  ),
-                ),
+                  const Gap(16),
+                  if (buttonTitle2 != null)
+                    CustomButton(
+                      title: buttonTitle2,
+                      onTap: onButton2Tap,
+                      inverted: true,
+                      border: true,
+                    ),
+                ],
               ),
             ),
           ),
+        ),
+      ),
     );
   }
 
@@ -139,9 +135,7 @@ class DialogService {
       buttonTitle: LocaleKeys.retry.tr(),
       buttonTitle2: LocaleKeys.cancel.tr(),
       onButtonTap: _appRouter.pop,
-      onButton2Tap: () {
-        // TODO(clement): FAQ
-      },
+      onButton2Tap: () {},
     );
   }
 
@@ -165,9 +159,7 @@ class DialogService {
       buttonTitle: LocaleKeys.ok.tr(),
       buttonTitle2: LocaleKeys.needHelp.tr(),
       onButtonTap: _appRouter.pop,
-      onButton2Tap: () {
-        // TODO(clement): FAQ
-      },
+      onButton2Tap: () {},
     );
   }
 }

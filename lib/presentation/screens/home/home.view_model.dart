@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tictactoe/core/providers/services/game.service.provider.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/domain/services/game.service.dart';
 import 'package:tictactoe/presentation/screens/home/home.state.dart';
@@ -42,7 +42,7 @@ class HomeViewModel extends _$HomeViewModel {
 
     _gameService.play(
       playersTurn,
-      CaseCoordinates(rowNumber: row, columnNumber: column),
+      CellCoordinates(rowNumber: row, columnNumber: column),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tictactoe/domain/entities/case_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/cell.entity.dart';
+import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/row.entity.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
@@ -46,7 +46,7 @@ abstract class Grid with _$Grid {
 /// See also:
 /// - [setFormOnCoordinates]
 /// - [Grid]
-/// - [CaseCoordinates]
+/// - [CellCoordinates]
 /// - [Row]
 
 extension GridExtension on Grid {
@@ -60,7 +60,7 @@ extension GridExtension on Grid {
   /// Sets the specified [formToPlay] at the given [coordinates] in the grid.
   ///
   /// Returns a new [Grid] with the form placed at the specified coordinates.
-  Grid setFormOnCoordinates(Form formToPlay, CaseCoordinates coordinates) {
+  Grid setFormOnCoordinates(Form formToPlay, CellCoordinates coordinates) {
     final Row relatedRow = grid[coordinates.rowNumber]!;
 
     final Map<int, Cell> updatedColumns = Map<int, Cell>.from(
@@ -88,7 +88,8 @@ extension GridExtension on Grid {
   }
 
   /// Get form by case coordinates
-  Form getFormByCaseCoordinates(CaseCoordinates coordinates) {
+  @Deprecated('First algo try, now unused')
+  Form getFormByCaseCoordinates(CellCoordinates coordinates) {
     final Row row = grid[coordinates.rowNumber]!;
     final Cell cellInColumn = row.columns[coordinates.columnNumber]!;
     return cellInColumn.form;
@@ -97,7 +98,11 @@ extension GridExtension on Grid {
   /// Get getNeighborsOfCaseCoordinates
   ///
   /// v2: fold puis where avec la condition
-  List<Cell> getNeighborsOfCaseCoordinates(CaseCoordinates coordinates) {
+  @Deprecated(
+    'First algo try, used to have something work, but now unused because of '
+    "the algo's slowness and consumtion",
+  )
+  List<Cell> getNeighborsOfCaseCoordinates(CellCoordinates coordinates) {
     const int minXY = 0;
     final int maxXY = columnsRowsAmount - 1;
     final int rowNumber = coordinates.rowNumber;
@@ -105,7 +110,8 @@ extension GridExtension on Grid {
 
     final List<Cell> neighbors = <Cell>[];
 
-    // Only consider the 8 possible neighboring offsets, but must be valid positions
+    // Only consider the 8 possible neighboring offsets,
+    // but must be valid positions
     for (int dr = -1; dr <= 1; dr++) {
       for (int dc = -1; dc <= 1; dc++) {
         // Skip the cell itself
@@ -119,7 +125,7 @@ extension GridExtension on Grid {
             newRow <= maxXY &&
             newCol >= minXY &&
             newCol <= maxXY) {
-          final CaseCoordinates neighborCoord = CaseCoordinates(
+          final CellCoordinates neighborCoord = CellCoordinates(
             rowNumber: newRow,
             columnNumber: newCol,
           );

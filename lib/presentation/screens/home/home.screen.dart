@@ -57,7 +57,7 @@ class _GameGrid extends ConsumerWidget {
           return Wrap(
             spacing: 8,
             runSpacing: 8,
-            alignment: WrapAlignment.center,
+            alignment: .center,
             children: List<Widget>.generate(totalCells, (int index) {
               final int row = index ~/ rowColumnLenght;
               final int column = index % rowColumnLenght;

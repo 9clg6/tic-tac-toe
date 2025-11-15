@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'case_coordinates.entity.dart';
+part of 'cell_coordinates.entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,39 +12,35 @@ part of 'case_coordinates.entity.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$CaseCoordinates {
+mixin _$CellCoordinates {
 
 /// The row index of the cell.
  int get rowNumber;/// The column index of the cell.
  int get columnNumber;
-/// Create a copy of CaseCoordinates
+/// Create a copy of CellCoordinates
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$CaseCoordinatesCopyWith<CaseCoordinates> get copyWith => _$CaseCoordinatesCopyWithImpl<CaseCoordinates>(this as CaseCoordinates, _$identity);
+$CellCoordinatesCopyWith<CellCoordinates> get copyWith => _$CellCoordinatesCopyWithImpl<CellCoordinates>(this as CellCoordinates, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CaseCoordinates&&(identical(other.rowNumber, rowNumber) || other.rowNumber == rowNumber)&&(identical(other.columnNumber, columnNumber) || other.columnNumber == columnNumber));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CellCoordinates&&(identical(other.rowNumber, rowNumber) || other.rowNumber == rowNumber)&&(identical(other.columnNumber, columnNumber) || other.columnNumber == columnNumber));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,rowNumber,columnNumber);
 
-@override
-String toString() {
-  return 'CaseCoordinates(rowNumber: $rowNumber, columnNumber: $columnNumber)';
-}
 
 
 }
 
 /// @nodoc
-abstract mixin class $CaseCoordinatesCopyWith<$Res>  {
-  factory $CaseCoordinatesCopyWith(CaseCoordinates value, $Res Function(CaseCoordinates) _then) = _$CaseCoordinatesCopyWithImpl;
+abstract mixin class $CellCoordinatesCopyWith<$Res>  {
+  factory $CellCoordinatesCopyWith(CellCoordinates value, $Res Function(CellCoordinates) _then) = _$CellCoordinatesCopyWithImpl;
 @useResult
 $Res call({
  int rowNumber, int columnNumber
@@ -55,14 +51,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$CaseCoordinatesCopyWithImpl<$Res>
-    implements $CaseCoordinatesCopyWith<$Res> {
-  _$CaseCoordinatesCopyWithImpl(this._self, this._then);
+class _$CellCoordinatesCopyWithImpl<$Res>
+    implements $CellCoordinatesCopyWith<$Res> {
+  _$CellCoordinatesCopyWithImpl(this._self, this._then);
 
-  final CaseCoordinates _self;
-  final $Res Function(CaseCoordinates) _then;
+  final CellCoordinates _self;
+  final $Res Function(CellCoordinates) _then;
 
-/// Create a copy of CaseCoordinates
+/// Create a copy of CellCoordinates
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? rowNumber = null,Object? columnNumber = null,}) {
   return _then(_self.copyWith(
@@ -75,8 +71,8 @@ as int,
 }
 
 
-/// Adds pattern-matching-related methods to [CaseCoordinates].
-extension CaseCoordinatesPatterns on CaseCoordinates {
+/// Adds pattern-matching-related methods to [CellCoordinates].
+extension CellCoordinatesPatterns on CellCoordinates {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -89,10 +85,10 @@ extension CaseCoordinatesPatterns on CaseCoordinates {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CaseCoordinates value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CellCoordinates value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _CaseCoordinates() when $default != null:
+case _CellCoordinates() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -111,10 +107,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CaseCoordinates value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CellCoordinates value)  $default,){
 final _that = this;
 switch (_that) {
-case _CaseCoordinates():
+case _CellCoordinates():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -132,10 +128,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CaseCoordinates value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CellCoordinates value)?  $default,){
 final _that = this;
 switch (_that) {
-case _CaseCoordinates() when $default != null:
+case _CellCoordinates() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -155,7 +151,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int rowNumber,  int columnNumber)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _CaseCoordinates() when $default != null:
+case _CellCoordinates() when $default != null:
 return $default(_that.rowNumber,_that.columnNumber);case _:
   return orElse();
 
@@ -176,7 +172,7 @@ return $default(_that.rowNumber,_that.columnNumber);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int rowNumber,  int columnNumber)  $default,) {final _that = this;
 switch (_that) {
-case _CaseCoordinates():
+case _CellCoordinates():
 return $default(_that.rowNumber,_that.columnNumber);case _:
   throw StateError('Unexpected subclass');
 
@@ -196,7 +192,7 @@ return $default(_that.rowNumber,_that.columnNumber);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int rowNumber,  int columnNumber)?  $default,) {final _that = this;
 switch (_that) {
-case _CaseCoordinates() when $default != null:
+case _CellCoordinates() when $default != null:
 return $default(_that.rowNumber,_that.columnNumber);case _:
   return null;
 
@@ -208,8 +204,8 @@ return $default(_that.rowNumber,_that.columnNumber);case _:
 /// @nodoc
 
 
-class _CaseCoordinates implements CaseCoordinates {
-  const _CaseCoordinates({required this.rowNumber, required this.columnNumber});
+class _CellCoordinates implements CellCoordinates {
+  const _CellCoordinates({required this.rowNumber, required this.columnNumber});
   
 
 /// The row index of the cell.
@@ -217,34 +213,30 @@ class _CaseCoordinates implements CaseCoordinates {
 /// The column index of the cell.
 @override final  int columnNumber;
 
-/// Create a copy of CaseCoordinates
+/// Create a copy of CellCoordinates
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$CaseCoordinatesCopyWith<_CaseCoordinates> get copyWith => __$CaseCoordinatesCopyWithImpl<_CaseCoordinates>(this, _$identity);
+_$CellCoordinatesCopyWith<_CellCoordinates> get copyWith => __$CellCoordinatesCopyWithImpl<_CellCoordinates>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CaseCoordinates&&(identical(other.rowNumber, rowNumber) || other.rowNumber == rowNumber)&&(identical(other.columnNumber, columnNumber) || other.columnNumber == columnNumber));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CellCoordinates&&(identical(other.rowNumber, rowNumber) || other.rowNumber == rowNumber)&&(identical(other.columnNumber, columnNumber) || other.columnNumber == columnNumber));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,rowNumber,columnNumber);
 
-@override
-String toString() {
-  return 'CaseCoordinates(rowNumber: $rowNumber, columnNumber: $columnNumber)';
-}
 
 
 }
 
 /// @nodoc
-abstract mixin class _$CaseCoordinatesCopyWith<$Res> implements $CaseCoordinatesCopyWith<$Res> {
-  factory _$CaseCoordinatesCopyWith(_CaseCoordinates value, $Res Function(_CaseCoordinates) _then) = __$CaseCoordinatesCopyWithImpl;
+abstract mixin class _$CellCoordinatesCopyWith<$Res> implements $CellCoordinatesCopyWith<$Res> {
+  factory _$CellCoordinatesCopyWith(_CellCoordinates value, $Res Function(_CellCoordinates) _then) = __$CellCoordinatesCopyWithImpl;
 @override @useResult
 $Res call({
  int rowNumber, int columnNumber
@@ -255,17 +247,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$CaseCoordinatesCopyWithImpl<$Res>
-    implements _$CaseCoordinatesCopyWith<$Res> {
-  __$CaseCoordinatesCopyWithImpl(this._self, this._then);
+class __$CellCoordinatesCopyWithImpl<$Res>
+    implements _$CellCoordinatesCopyWith<$Res> {
+  __$CellCoordinatesCopyWithImpl(this._self, this._then);
 
-  final _CaseCoordinates _self;
-  final $Res Function(_CaseCoordinates) _then;
+  final _CellCoordinates _self;
+  final $Res Function(_CellCoordinates) _then;
 
-/// Create a copy of CaseCoordinates
+/// Create a copy of CellCoordinates
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? rowNumber = null,Object? columnNumber = null,}) {
-  return _then(_CaseCoordinates(
+  return _then(_CellCoordinates(
 rowNumber: null == rowNumber ? _self.rowNumber : rowNumber // ignore: cast_nullable_to_non_nullable
 as int,columnNumber: null == columnNumber ? _self.columnNumber : columnNumber // ignore: cast_nullable_to_non_nullable
 as int,

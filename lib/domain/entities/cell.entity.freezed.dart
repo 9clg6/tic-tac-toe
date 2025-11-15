@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Cell {
 
- CaseCoordinates get coordinates; Form get form;
+ CellCoordinates get coordinates; Form get form;
 /// Create a copy of Cell
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -32,10 +32,6 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,coordinates,form);
 
-@override
-String toString() {
-  return 'Cell(coordinates: $coordinates, form: $form)';
-}
 
 
 }
@@ -45,11 +41,11 @@ abstract mixin class $CellCopyWith<$Res>  {
   factory $CellCopyWith(Cell value, $Res Function(Cell) _then) = _$CellCopyWithImpl;
 @useResult
 $Res call({
- CaseCoordinates coordinates, Form form
+ CellCoordinates coordinates, Form form
 });
 
 
-$CaseCoordinatesCopyWith<$Res> get coordinates;
+$CellCoordinatesCopyWith<$Res> get coordinates;
 
 }
 /// @nodoc
@@ -65,7 +61,7 @@ class _$CellCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? coordinates = null,Object? form = null,}) {
   return _then(_self.copyWith(
 coordinates: null == coordinates ? _self.coordinates : coordinates // ignore: cast_nullable_to_non_nullable
-as CaseCoordinates,form: null == form ? _self.form : form // ignore: cast_nullable_to_non_nullable
+as CellCoordinates,form: null == form ? _self.form : form // ignore: cast_nullable_to_non_nullable
 as Form,
   ));
 }
@@ -73,9 +69,9 @@ as Form,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CaseCoordinatesCopyWith<$Res> get coordinates {
+$CellCoordinatesCopyWith<$Res> get coordinates {
   
-  return $CaseCoordinatesCopyWith<$Res>(_self.coordinates, (value) {
+  return $CellCoordinatesCopyWith<$Res>(_self.coordinates, (value) {
     return _then(_self.copyWith(coordinates: value));
   });
 }
@@ -160,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CaseCoordinates coordinates,  Form form)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CellCoordinates coordinates,  Form form)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Cell() when $default != null:
 return $default(_that.coordinates,_that.form);case _:
@@ -181,7 +177,7 @@ return $default(_that.coordinates,_that.form);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CaseCoordinates coordinates,  Form form)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CellCoordinates coordinates,  Form form)  $default,) {final _that = this;
 switch (_that) {
 case _Cell():
 return $default(_that.coordinates,_that.form);case _:
@@ -201,7 +197,7 @@ return $default(_that.coordinates,_that.form);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CaseCoordinates coordinates,  Form form)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CellCoordinates coordinates,  Form form)?  $default,) {final _that = this;
 switch (_that) {
 case _Cell() when $default != null:
 return $default(_that.coordinates,_that.form);case _:
@@ -219,7 +215,7 @@ class _Cell implements Cell {
   const _Cell({required this.coordinates, required this.form});
   
 
-@override final  CaseCoordinates coordinates;
+@override final  CellCoordinates coordinates;
 @override final  Form form;
 
 /// Create a copy of Cell
@@ -239,10 +235,6 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,coordinates,form);
 
-@override
-String toString() {
-  return 'Cell(coordinates: $coordinates, form: $form)';
-}
 
 
 }
@@ -252,11 +244,11 @@ abstract mixin class _$CellCopyWith<$Res> implements $CellCopyWith<$Res> {
   factory _$CellCopyWith(_Cell value, $Res Function(_Cell) _then) = __$CellCopyWithImpl;
 @override @useResult
 $Res call({
- CaseCoordinates coordinates, Form form
+ CellCoordinates coordinates, Form form
 });
 
 
-@override $CaseCoordinatesCopyWith<$Res> get coordinates;
+@override $CellCoordinatesCopyWith<$Res> get coordinates;
 
 }
 /// @nodoc
@@ -272,7 +264,7 @@ class __$CellCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? coordinates = null,Object? form = null,}) {
   return _then(_Cell(
 coordinates: null == coordinates ? _self.coordinates : coordinates // ignore: cast_nullable_to_non_nullable
-as CaseCoordinates,form: null == form ? _self.form : form // ignore: cast_nullable_to_non_nullable
+as CellCoordinates,form: null == form ? _self.form : form // ignore: cast_nullable_to_non_nullable
 as Form,
   ));
 }
@@ -281,9 +273,9 @@ as Form,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CaseCoordinatesCopyWith<$Res> get coordinates {
+$CellCoordinatesCopyWith<$Res> get coordinates {
   
-  return $CaseCoordinatesCopyWith<$Res>(_self.coordinates, (value) {
+  return $CellCoordinatesCopyWith<$Res>(_self.coordinates, (value) {
     return _then(_self.copyWith(coordinates: value));
   });
 }

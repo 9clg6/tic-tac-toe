@@ -1,3 +1,8 @@
+# 0.0.4
+- Lobby with ready function
+- Winner overlay at the end
+- Translations
+
 # 0.0.3
 - Winner finder algorithm v2 (neighbors -> filter by form)
 - Refacto

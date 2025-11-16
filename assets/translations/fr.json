@@ -1,3 +1,18 @@
 {
-  "first": "Bonjour"
+  "playerXwon": "Le joueur {} a gagné",
+  "restart": "Restart",
+  "yourTurn": "C'est ton tour !",
+  "home": {
+    "startButton": "Démarrer"
+  },
+  "lobby": {
+    "title": "Lobby",
+    "readyPlayers": "Joueurs prêts :",
+    "addPlayer": "Ajouter un joueur",
+    "startGame": "Lancer la partie",
+    "playerLabel": "Joueur {}",
+    "gameStartingSoon": "La partie va bientôt démarrer",
+    "waitingOthers": "En attente des autres joueurs",
+    "readyButton": "Prêt ?"
+  }
 }

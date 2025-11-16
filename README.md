@@ -26,6 +26,7 @@ Dans un soucis de transparence, je noterais ici les éléments générés par IA
 ### ReplaySubject
 
 - Je connaissais le BehaviorSubject pour garder une dernière valeur en mémoire mais l'IA m'a permis de connaitre le ReplaySubject, ce qui me permet de stocker l'historique des actions des joueurs et donc de trigger le checkWinner seulement au bon moment.
+Cela évite de stocker une liste dans un BehaviorSubject, ce qui est moins adapté.
 
 ### Traductions
  
@@ -38,6 +39,15 @@ Dans un soucis de transparence, je noterais ici les éléments générés par IA
 ### Comment doc
 
 - Je manque souvent d'inspiration pour la documentation de code, car souvent les noms s'expliquent par eux-mêmes, donc l'IA generative permet ici d'expliquer efficacement le code
+
+
+### Tests
+
+- Certains tests sont générés, car pour moi, um bon test doit être pensé, réflechi et concu pour durer. Mais des fois on manque d'objectivité pour leur rédaction, à défaut de faire des TDD, donc la génération de tests permet de rédiger des tests cohérents qui ne manqueront pas de rater en cas de régression.
+
+### Matchmaking
+
+- J'ai demandé à l'IA d'optimiser mon matchmaking, car je voulais un truc très simple mais fonctionnel, il m'a optimisé cela en mettant en place la FIFO, j'avais mis une LIFO. Il a également ajouté le nettoyage de la collection lorsque qu'une partie est rejoint 
 
 # Guide
 ## Local

@@ -23,23 +23,8 @@ Limite de temps : 1 semaine
 ## Backlog
 
 1. TicTacToe v1 (widgets de base), estimation = 1 jour
-2. TicTacToe v2 (canvas et autres optimisations) = 3 jours
 3. Menu = 0.5 jour
 4. Mode online (2 devices) = 2 jours
 5. Mode online (matchmaking) = 1 jour
 6. Tests = 1 jour
 7. Documentation = 1 jour
-
-## Avancement
-
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.

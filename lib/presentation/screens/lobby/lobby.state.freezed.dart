@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LobbyState {
 
- List<Player> get players; Map<int, bool> get playersReady;
+ LobbyMode get mode; bool get isLoading; String get joinGameId; String? get lastCreatedGameId; String? get matchmakingRequestId; String? get matchedGameId; String? get errorMessage;
 /// Create a copy of LobbyState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $LobbyStateCopyWith<LobbyState> get copyWith => _$LobbyStateCopyWithImpl<LobbySt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LobbyState&&const DeepCollectionEquality().equals(other.players, players)&&const DeepCollectionEquality().equals(other.playersReady, playersReady));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LobbyState&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.joinGameId, joinGameId) || other.joinGameId == joinGameId)&&(identical(other.lastCreatedGameId, lastCreatedGameId) || other.lastCreatedGameId == lastCreatedGameId)&&(identical(other.matchmakingRequestId, matchmakingRequestId) || other.matchmakingRequestId == matchmakingRequestId)&&(identical(other.matchedGameId, matchedGameId) || other.matchedGameId == matchedGameId)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(players),const DeepCollectionEquality().hash(playersReady));
+int get hashCode => Object.hash(runtimeType,mode,isLoading,joinGameId,lastCreatedGameId,matchmakingRequestId,matchedGameId,errorMessage);
 
 @override
 String toString() {
-  return 'LobbyState(players: $players, playersReady: $playersReady)';
+  return 'LobbyState(mode: $mode, isLoading: $isLoading, joinGameId: $joinGameId, lastCreatedGameId: $lastCreatedGameId, matchmakingRequestId: $matchmakingRequestId, matchedGameId: $matchedGameId, errorMessage: $errorMessage)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $LobbyStateCopyWith<$Res>  {
   factory $LobbyStateCopyWith(LobbyState value, $Res Function(LobbyState) _then) = _$LobbyStateCopyWithImpl;
 @useResult
 $Res call({
- List<Player> players, Map<int, bool> playersReady
+ LobbyMode mode, bool isLoading, String joinGameId, String? lastCreatedGameId, String? matchmakingRequestId, String? matchedGameId, String? errorMessage
 });
 
 
@@ -62,11 +62,16 @@ class _$LobbyStateCopyWithImpl<$Res>
 
 /// Create a copy of LobbyState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? players = null,Object? playersReady = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? mode = null,Object? isLoading = null,Object? joinGameId = null,Object? lastCreatedGameId = freezed,Object? matchmakingRequestId = freezed,Object? matchedGameId = freezed,Object? errorMessage = freezed,}) {
   return _then(_self.copyWith(
-players: null == players ? _self.players : players // ignore: cast_nullable_to_non_nullable
-as List<Player>,playersReady: null == playersReady ? _self.playersReady : playersReady // ignore: cast_nullable_to_non_nullable
-as Map<int, bool>,
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as LobbyMode,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,joinGameId: null == joinGameId ? _self.joinGameId : joinGameId // ignore: cast_nullable_to_non_nullable
+as String,lastCreatedGameId: freezed == lastCreatedGameId ? _self.lastCreatedGameId : lastCreatedGameId // ignore: cast_nullable_to_non_nullable
+as String?,matchmakingRequestId: freezed == matchmakingRequestId ? _self.matchmakingRequestId : matchmakingRequestId // ignore: cast_nullable_to_non_nullable
+as String?,matchedGameId: freezed == matchedGameId ? _self.matchedGameId : matchedGameId // ignore: cast_nullable_to_non_nullable
+as String?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -151,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Player> players,  Map<int, bool> playersReady)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LobbyMode mode,  bool isLoading,  String joinGameId,  String? lastCreatedGameId,  String? matchmakingRequestId,  String? matchedGameId,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LobbyState() when $default != null:
-return $default(_that.players,_that.playersReady);case _:
+return $default(_that.mode,_that.isLoading,_that.joinGameId,_that.lastCreatedGameId,_that.matchmakingRequestId,_that.matchedGameId,_that.errorMessage);case _:
   return orElse();
 
 }
@@ -172,10 +177,10 @@ return $default(_that.players,_that.playersReady);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Player> players,  Map<int, bool> playersReady)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LobbyMode mode,  bool isLoading,  String joinGameId,  String? lastCreatedGameId,  String? matchmakingRequestId,  String? matchedGameId,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _LobbyState():
-return $default(_that.players,_that.playersReady);case _:
+return $default(_that.mode,_that.isLoading,_that.joinGameId,_that.lastCreatedGameId,_that.matchmakingRequestId,_that.matchedGameId,_that.errorMessage);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -192,10 +197,10 @@ return $default(_that.players,_that.playersReady);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Player> players,  Map<int, bool> playersReady)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LobbyMode mode,  bool isLoading,  String joinGameId,  String? lastCreatedGameId,  String? matchmakingRequestId,  String? matchedGameId,  String? errorMessage)?  $default,) {final _that = this;
 switch (_that) {
 case _LobbyState() when $default != null:
-return $default(_that.players,_that.playersReady);case _:
+return $default(_that.mode,_that.isLoading,_that.joinGameId,_that.lastCreatedGameId,_that.matchmakingRequestId,_that.matchedGameId,_that.errorMessage);case _:
   return null;
 
 }
@@ -207,23 +212,16 @@ return $default(_that.players,_that.playersReady);case _:
 
 
 class _LobbyState extends LobbyState {
-  const _LobbyState({required final  List<Player> players, final  Map<int, bool> playersReady = const <int, bool>{}}): _players = players,_playersReady = playersReady,super._();
+  const _LobbyState({this.mode = LobbyMode.local, this.isLoading = false, this.joinGameId = '', this.lastCreatedGameId, this.matchmakingRequestId, this.matchedGameId, this.errorMessage}): super._();
   
 
- final  List<Player> _players;
-@override List<Player> get players {
-  if (_players is EqualUnmodifiableListView) return _players;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_players);
-}
-
- final  Map<int, bool> _playersReady;
-@override@JsonKey() Map<int, bool> get playersReady {
-  if (_playersReady is EqualUnmodifiableMapView) return _playersReady;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(_playersReady);
-}
-
+@override@JsonKey() final  LobbyMode mode;
+@override@JsonKey() final  bool isLoading;
+@override@JsonKey() final  String joinGameId;
+@override final  String? lastCreatedGameId;
+@override final  String? matchmakingRequestId;
+@override final  String? matchedGameId;
+@override final  String? errorMessage;
 
 /// Create a copy of LobbyState
 /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +233,16 @@ _$LobbyStateCopyWith<_LobbyState> get copyWith => __$LobbyStateCopyWithImpl<_Lob
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LobbyState&&const DeepCollectionEquality().equals(other._players, _players)&&const DeepCollectionEquality().equals(other._playersReady, _playersReady));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LobbyState&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.joinGameId, joinGameId) || other.joinGameId == joinGameId)&&(identical(other.lastCreatedGameId, lastCreatedGameId) || other.lastCreatedGameId == lastCreatedGameId)&&(identical(other.matchmakingRequestId, matchmakingRequestId) || other.matchmakingRequestId == matchmakingRequestId)&&(identical(other.matchedGameId, matchedGameId) || other.matchedGameId == matchedGameId)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_players),const DeepCollectionEquality().hash(_playersReady));
+int get hashCode => Object.hash(runtimeType,mode,isLoading,joinGameId,lastCreatedGameId,matchmakingRequestId,matchedGameId,errorMessage);
 
 @override
 String toString() {
-  return 'LobbyState(players: $players, playersReady: $playersReady)';
+  return 'LobbyState(mode: $mode, isLoading: $isLoading, joinGameId: $joinGameId, lastCreatedGameId: $lastCreatedGameId, matchmakingRequestId: $matchmakingRequestId, matchedGameId: $matchedGameId, errorMessage: $errorMessage)';
 }
 
 
@@ -255,7 +253,7 @@ abstract mixin class _$LobbyStateCopyWith<$Res> implements $LobbyStateCopyWith<$
   factory _$LobbyStateCopyWith(_LobbyState value, $Res Function(_LobbyState) _then) = __$LobbyStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<Player> players, Map<int, bool> playersReady
+ LobbyMode mode, bool isLoading, String joinGameId, String? lastCreatedGameId, String? matchmakingRequestId, String? matchedGameId, String? errorMessage
 });
 
 
@@ -272,11 +270,16 @@ class __$LobbyStateCopyWithImpl<$Res>
 
 /// Create a copy of LobbyState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? players = null,Object? playersReady = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? mode = null,Object? isLoading = null,Object? joinGameId = null,Object? lastCreatedGameId = freezed,Object? matchmakingRequestId = freezed,Object? matchedGameId = freezed,Object? errorMessage = freezed,}) {
   return _then(_LobbyState(
-players: null == players ? _self._players : players // ignore: cast_nullable_to_non_nullable
-as List<Player>,playersReady: null == playersReady ? _self._playersReady : playersReady // ignore: cast_nullable_to_non_nullable
-as Map<int, bool>,
+mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as LobbyMode,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,joinGameId: null == joinGameId ? _self.joinGameId : joinGameId // ignore: cast_nullable_to_non_nullable
+as String,lastCreatedGameId: freezed == lastCreatedGameId ? _self.lastCreatedGameId : lastCreatedGameId // ignore: cast_nullable_to_non_nullable
+as String?,matchmakingRequestId: freezed == matchmakingRequestId ? _self.matchmakingRequestId : matchmakingRequestId // ignore: cast_nullable_to_non_nullable
+as String?,matchedGameId: freezed == matchedGameId ? _self.matchedGameId : matchedGameId // ignore: cast_nullable_to_non_nullable
+as String?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

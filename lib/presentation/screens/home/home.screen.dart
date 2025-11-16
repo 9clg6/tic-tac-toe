@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +65,7 @@ class _WinnerOverlay extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           TextVariant(
-            LocaleKeys.playerXwon.tr(
+            LocaleKeys.game_playerXwon.tr(
               args: <String>[viewModel.winner!.toString()],
             ),
             variantType: TextVariantType.displaySmall,
@@ -71,8 +73,13 @@ class _WinnerOverlay extends ConsumerWidget {
           ),
           const Gap(22),
           CustomButton(
-            title: LocaleKeys.restart.tr(),
+            title: LocaleKeys.game_restart.tr(),
             onTap: viewModel.restartGame,
+          ),
+          const Gap(22),
+          CustomButton(
+            title: LocaleKeys.game_leave.tr(),
+            onTap: viewModel.leave,
           ),
         ],
       ),
@@ -96,47 +103,56 @@ class _GameGrid extends ConsumerWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                alignment: WrapAlignment.center,
-                children: List<Widget>.generate(totalCells, (int index) {
-                  final int row = index ~/ rowColumnLenght;
-                  final int column = index % rowColumnLenght;
-                  final form_enum.Form? currentCell =
-                      state.grid!.grid[row]?.columns[column]!.form;
+              child: Transform.rotate(
+                angle: viewModel.shouldRotateBoard ? math.pi : 0,
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  alignment: WrapAlignment.center,
+                  children: List<Widget>.generate(totalCells, (int index) {
+                    final int row = index ~/ rowColumnLenght;
+                    final int column = index % rowColumnLenght;
+                    final form_enum.Form? currentCell =
+                        state.grid!.grid[row]?.columns[column]!.form;
 
-                  final Color color = index.isEven ? Colors.white : Colors.grey;
+                    final Color color = index.isEven
+                        ? Colors.white
+                        : Colors.grey;
 
-                  return TappableComponent(
-                    color: color,
-                    onTap: () => viewModel.tapOnCell(row: row, column: column),
-                    child: Container(
+                    final bool canTap = viewModel.canPlay;
+                    return TappableComponent(
                       color: color,
-                      width:
-                          MediaQuery.of(context).size.width / rowColumnLenght -
-                          16,
-                      height: 60,
-                      alignment: Alignment.center,
-                      child: TextVariant(
-                        (() {
-                          switch (currentCell) {
-                            case form_enum.Form.cross:
-                              return form_enum.Form.cross.value;
-                            case form_enum.Form.circle:
-                              return form_enum.Form.circle.value;
-                            case form_enum.Form.empty:
-                              return form_enum.Form.empty.value;
-                            case null:
-                              throw UnimplementedError();
-                          }
-                        })(),
-                        variantType: TextVariantType.displaySmall,
-                        color: Colors.black,
+                      onTap: canTap
+                          ? () => viewModel.tapOnCell(row: row, column: column)
+                          : null,
+                      child: Container(
+                        color: color,
+                        width:
+                            MediaQuery.of(context).size.width /
+                                rowColumnLenght -
+                            16,
+                        height: 60,
+                        alignment: Alignment.center,
+                        child: TextVariant(
+                          (() {
+                            switch (currentCell) {
+                              case form_enum.Form.cross:
+                                return form_enum.Form.cross.value;
+                              case form_enum.Form.circle:
+                                return form_enum.Form.circle.value;
+                              case form_enum.Form.empty:
+                                return form_enum.Form.empty.value;
+                              case null:
+                                throw UnimplementedError();
+                            }
+                          })(),
+                          variantType: TextVariantType.displaySmall,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               ),
             ),
           ),
@@ -161,6 +177,10 @@ class _PlayerSideMessage extends ConsumerWidget {
 
     if (viewModel.isGameEnded) return const SizedBox.shrink();
 
+    if (viewModel.isOnlineGame && playerNumber != viewModel.localPlayerId) {
+      return const SizedBox.shrink();
+    }
+
     final int playersLength = viewModel.playersLength;
 
     Alignment alignment;
@@ -182,11 +202,11 @@ class _PlayerSideMessage extends ConsumerWidget {
     }
 
     Widget message = TextVariant(
-      LocaleKeys.yourTurn.tr(),
+      LocaleKeys.game_yourTurn.tr(),
       variantType: TextVariantType.displaySmall,
     );
 
-    if (playerNumber == 0) {
+    if (!viewModel.isOnlineGame && playerNumber == 0) {
       message = RotatedBox(quarterTurns: 2, child: message);
     }
 

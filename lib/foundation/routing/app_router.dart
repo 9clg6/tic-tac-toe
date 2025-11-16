@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:tictactoe/presentation/screens/game_lobby/game_lobby.screen.dart';
 import 'package:tictactoe/presentation/screens/home/home.screen.dart';
 import 'package:tictactoe/presentation/screens/lobby/lobby.screen.dart';
 
@@ -12,7 +13,8 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => <AutoRoute>[
-    AutoRoute(page: LobbyRoute.page, initial: true),
-    AutoRoute(page: HomeRoute.page),
-  ];
+        AutoRoute(page: LobbyRoute.page, initial: true),
+        AutoRoute(page: GameLobbyRoute.page),
+        AutoRoute(page: HomeRoute.page),
+      ];
 }

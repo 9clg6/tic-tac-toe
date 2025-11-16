@@ -15,13 +15,16 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> _fr = {
-  "playerXwon": "Le joueur {} a gagné",
-  "restart": "Restart",
-  "yourTurn": "C'est ton tour !",
+  "game": {
+    "playerXwon": "Le joueur {} a gagné",
+    "restart": "Restart",
+    "leave": "Quitter",
+    "yourTurn": "C'est ton tour !"
+  },
   "home": {
     "startButton": "Démarrer"
   },
-  "lobby": {
+  "gameLobby": {
     "title": "Lobby",
     "readyPlayers": "Joueurs prêts :",
     "addPlayer": "Ajouter un joueur",
@@ -30,6 +33,26 @@ class CodegenLoader extends AssetLoader{
     "gameStartingSoon": "La partie va bientôt démarrer",
     "waitingOthers": "En attente des autres joueurs",
     "readyButton": "Prêt ?"
+  },
+  "lobby": {
+    "title": "Lobby",
+    "modeQuestion": "Choisis ton mode de jeu",
+    "localLabel": "Local",
+    "onlineLabel": "En ligne",
+    "localDescription": "Jouez à deux sur le même téléphone.",
+    "onlineDescription": "Affronte un joueur en ligne via matchmaking ou ID.",
+    "playLocal": "Jouer en local",
+    "joinWithId": "Rejoindre via un identifiant",
+    "enterGameId": "ID de la partie",
+    "joinButton": "Rejoindre",
+    "matchmakingButton": "Trouver un joueur",
+    "createGameButton": "Créer une partie",
+    "statusMatchFound": "Match trouvé : #{}",
+    "statusEnqueued": "Ajouté à la file d'attente (#{}).",
+    "statusGameCreated": "Partie créée : #{}",
+    "errorJoinIdRequired": "Merci de renseigner un identifiant avant de rejoindre.",
+    "errorGameNotFound": "Aucune partie trouvée avec cet identifiant.",
+    "errorNoRequest": "Aucun joueur n'attend pour l'instant. Crée une partie ou réessaie plus tard."
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"fr": _fr};

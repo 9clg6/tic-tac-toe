@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/domain/services/game.service.dart';
+import 'package:tictactoe/domain/services/local_game.service.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 void main() {
@@ -9,7 +10,7 @@ void main() {
     late GameService service;
 
     setUp(() {
-      service = GameService()..initialize();
+      service = LocalGameService()..initialize();
     });
 
     tearDown(() {

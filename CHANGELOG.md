@@ -1,3 +1,12 @@
+# 0.0.5
+- Changed ROADMAP.md : Build UI by Canvas is unseless then removed v2 plan
+- Simple matchmaking : players join list, FIFO principle to find game
+- Online / Local mode
+- Moved lobby to game lobby
+- Added lobby for local and online mode
+- Split online and local service, with mixin for better seperation of concerns
+- Tests d'intégration
+
 # 0.0.4
 - Lobby with ready function
 - Winner overlay at the end

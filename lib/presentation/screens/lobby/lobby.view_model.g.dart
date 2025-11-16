@@ -6,9 +6,9 @@ part of 'lobby.view_model.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$lobbyViewModelHash() => r'4aa5eec902ae37f16d47dd82a1e1a4c0a191c293';
+String _$lobbyViewModelHash() => r'e4d4c1451365868f7fcff7e647eb9ffdb30a1267';
 
-/// Lobby view model used to manage players before starting a match.
+/// Handles lobby interactions while delegating business logic to services.
 ///
 /// Copied from [LobbyViewModel].
 @ProviderFor(LobbyViewModel)

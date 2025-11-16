@@ -23,11 +23,6 @@ class NavigationService {
     _appRouter.replace(const HomeRoute());
   }
 
-  /// Navigate to sign in page
-  void navigateToSignInPage() {
-    _appRouter.push(const AuthenticationRoute());
-  }
-
   /// Pop
   void pop() {
     _appRouter.maybePop();

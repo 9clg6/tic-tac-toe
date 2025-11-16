@@ -3,8 +3,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:tictactoe/domain/entities/cell.entity.dart';
 import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
+import 'package:tictactoe/domain/entities/player.entity.dart';
 import 'package:tictactoe/domain/entities/player_action.entity.dart';
-import 'package:tictactoe/domain/entities/players.entity.dart';
 import 'package:tictactoe/foundation/enum/form.enum.dart';
 
 /// Game service, used to handle actions and party
@@ -15,7 +15,7 @@ final class GameService {
   Grid? grid;
 
   /// Players of the game
-  List<Players>? players;
+  List<Player>? players;
 
   PlayerAction? _lastAction;
 
@@ -40,38 +40,35 @@ final class GameService {
 
   List<PlayerAction> get _playerActionsHistory => _playerActionsSubject.values;
 
-  /// Getter for the current turn (player number: 1 or 2)
+  /// Getter for the current turn (player number: 0 or 1)
   int get currentPlayerTurn {
-    const int firstPlayerId = 1;
+    const int firstPlayerId = 0;
 
-    // If no action yet, the first player in the players list starts
     if (players == null || players!.isEmpty) {
       throw Exception('Players list not initialized or empty');
     }
 
-    // 1 and not 0 because the first player is initialized with id=0+1
     if (_lastAction == null) return firstPlayerId;
 
     final int lastPlayerWhoPlayed = _lastAction!.playerNumber;
+    final int playersLength = players!.length;
 
-    // Determine the next player's turn: increment last player's id,
-    // wrap to first if exceeded amount
-    final int nextPlayer =
-        lastPlayerWhoPlayed + 1 > (players?.length ?? _playersAmount)
-        ? firstPlayerId
-        : lastPlayerWhoPlayed + 1;
+    final int nextPlayer = (lastPlayerWhoPlayed + 1) % playersLength;
 
     return nextPlayer;
   }
 
   /// Initialize board
-  void initialize() {
+  void initialize({int playersAmount = _playersAmount}) {
     grid = Grid.generate();
     _gridSubject.add(grid!);
     _lastAction = null;
     winner = null;
     isGameEnded = false;
-    players = <Players>[Players(id: 1), Players(id: 2)];
+    players = List<Player>.generate(
+      playersAmount,
+      (int index) => Player(id: index),
+    );
     _resetPlayerActionsHistory();
   }
 
@@ -80,12 +77,12 @@ final class GameService {
     if (players == null) throw Exception('Players list not initialized');
 
     final int amountOfPlayers = players!.length;
-    players!.add(Players(id: amountOfPlayers + 1));
+    players!.add(Player(id: amountOfPlayers + 1));
   }
 
   /// Plays a move for the given player at the specified coordinates.
   ///
-  /// [playerNumber] specifies which player is making the move (1 or 2).
+  /// [playerNumber] specifies which player is making the move (0 or 1).
   /// [coordinates] specifies the cell in the grid where the player wants
   /// to play.
   ///
@@ -93,8 +90,8 @@ final class GameService {
   void play(int playerNumber, CellCoordinates coordinates) {
     if (isGameEnded) return;
     final Form formToPlay = switch (playerNumber) {
-      1 => Form.cross,
-      2 => Form.circle,
+      0 => Form.cross,
+      1 => Form.circle,
       _ => throw Exception("Game doesn't support more than 2 players yet"),
     };
 

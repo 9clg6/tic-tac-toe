@@ -4,9 +4,9 @@
 /// for example by assigning them an [id]. You can extend this class
 /// later with additional player-related information such as name,
 /// avatar, or score.
-final class Players {
-  /// Creates a [Players] instance with the provided [id].
-  Players({required this.id});
+final class Player {
+  /// Creates a [Player] instance with the provided [id].
+  Player({required this.id});
 
   /// The unique identifier of the player.
   final int id;

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:tictactoe/data/clients/dio.client.dart';
 import 'package:tictactoe/domain/entities/auth.entity.dart';
-import 'package:tictactoe/domain/services/navigation.service.dart';
 import 'package:tictactoe/domain/usecases/get_auth.use_case.dart';
 import 'package:tictactoe/foundation/interfaces/results.usecases.dart';
 
@@ -13,16 +12,13 @@ class HeaderInterceptor {
   HeaderInterceptor({
     required DioClient dioClient,
     required GetAuthUseCase getAuthUseCase,
-    required NavigationService navigationService,
   }) : _dioClient = dioClient,
-       _getAuthUseCase = getAuthUseCase,
-       _navigationService = navigationService {
+       _getAuthUseCase = getAuthUseCase {
     _registerInterceptor();
   }
 
   final DioClient _dioClient;
   final GetAuthUseCase _getAuthUseCase;
-  final NavigationService _navigationService;
 
   void _registerInterceptor() {
     _dioClient.interceptors.add(
@@ -47,8 +43,6 @@ class HeaderInterceptor {
                     'Authorization': 'Bearer ${authEntity.token}',
                   });
                 }
-              } else {
-                _navigationService.navigateToSignInPage();
               }
 
               handler.next(requestOptions);

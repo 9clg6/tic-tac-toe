@@ -1,29 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tictactoe/domain/entities/player.entity.dart';
+import 'package:tictactoe/foundation/enum/lobby.enum.dart';
 
 part 'lobby.state.freezed.dart';
 
-/// Lobby screen state
+/// State of the lobby screen.
 @freezed
 abstract class LobbyState with _$LobbyState {
-  /// Constructor
+  /// Default constructor
   const factory LobbyState({
-    required List<Player> players,
-    @Default(<int, bool>{}) Map<int, bool> playersReady,
+    @Default(LobbyMode.local) LobbyMode mode,
+    @Default(false) bool isLoading,
+    @Default('') String joinGameId,
+    String? lastCreatedGameId,
+    String? matchmakingRequestId,
+    String? matchedGameId,
+    String? errorMessage,
   }) = _LobbyState;
 
   const LobbyState._();
 
-  /// Initial state with a default set of players ready to join the match
-  factory LobbyState.initial() => LobbyState(
-    players: List<Player>.generate(2, (int index) => Player(id: index)),
-  );
-}
-
-/// Lobby state extension
-extension LobbyStateExtension on LobbyState {
-  /// are all players ready
-  bool get areAllPlayersReady =>
-      playersReady.length == players.length &&
-      playersReady.values.every((bool element) => element);
+  /// Whether the input contains something usable to join a game.
+  bool get canJoinGame => joinGameId.trim().isNotEmpty;
 }

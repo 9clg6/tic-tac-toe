@@ -87,6 +87,20 @@ extension GridExtension on Grid {
     return copyWith(grid: updatedGrid);
   }
 
+  /// Get cell by coordinates
+  Cell getCellByCoordinates(CellCoordinates coordinates) {
+    final Row row = grid[coordinates.rowNumber]!;
+    return row.columns[coordinates.columnNumber]!;
+  }
+
+  /// Get cells coordinates by form
+  Set<CellCoordinates> getCellsCoordinatesByForm(Form form) {
+    return allCells
+        .where((Cell cell) => cell.form == form)
+        .map((Cell cell) => cell.coordinates)
+        .toSet();
+  }
+
   /// Get form by case coordinates
   @Deprecated('First algo try, now unused')
   Form getFormByCaseCoordinates(CellCoordinates coordinates) {

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tictactoe/core/providers/services/game.service.provider.dart';
+import 'package:tictactoe/core/providers/services/navigation.service.provider.dart';
 import 'package:tictactoe/domain/entities/cell_coordinates.entity.dart';
 import 'package:tictactoe/domain/entities/grid.entity.dart';
 import 'package:tictactoe/domain/services/game.service.dart';
@@ -27,6 +28,18 @@ class HomeViewModel extends _$HomeViewModel {
   /// Amount of players in the game
   int get playersLength => _gameService.players?.length ?? 0;
 
+  /// Whether the board should rotate for the local player.
+  bool get shouldRotateBoard => _gameService.shouldRotateBoard;
+
+  /// Whether the ongoing game is online.
+  bool get isOnlineGame => _gameService.isOnlineGame;
+
+  /// Local player identifier.
+  int get localPlayerId => _gameService.localPlayerId;
+
+  /// Can the local player interact right now?
+  bool get canPlay => _gameService.canPlay;
+
   /// Is game ended
   bool get isGameEnded => _gameService.isGameEnded;
 
@@ -39,15 +52,18 @@ class HomeViewModel extends _$HomeViewModel {
 
     _gridSubscription = _gameService.gridStream.listen((Grid updatedGrid) {
       state = state.copyWith(grid: updatedGrid, isLoading: false);
-
       if (_gameService.winner != null) {
         portalController.show();
       }
     });
 
-    ref.onDispose(_gridSubscription.cancel);
+    ref.onDispose(() {
+      _gridSubscription.cancel();
+    });
 
-    _gameService.initialize();
+    if (_gameService.grid == null) {
+      _gameService.initialize();
+    }
 
     return HomeState(isLoading: false, grid: _gameService.grid);
   }
@@ -61,8 +77,23 @@ class HomeViewModel extends _$HomeViewModel {
   }
 
   /// Restart game
-  void restartGame() {
-    _gameService.initialize();
+  Future<void> restartGame() async {
+    if (_gameService.isOnlineGame) {
+      await _gameService.resetOnlineGameState();
+    }
+    _gameService.initialize(
+      isOnlineGame: _gameService.isOnlineGame,
+      localPlayerId: _gameService.localPlayerId,
+      onlineGameId: _gameService.onlineGameId,
+    );
     portalController.hide();
+  }
+
+  /// Leave current sreen
+  void leave() {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
+      portalController.hide();
+    });
+    ref.watch(navigationServiceProvider).navigateBack();
   }
 }

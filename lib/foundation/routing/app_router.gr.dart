@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [GameLobbyScreen]
+class GameLobbyRoute extends PageRouteInfo<void> {
+  const GameLobbyRoute({List<PageRouteInfo>? children})
+    : super(GameLobbyRoute.name, initialChildren: children);
+
+  static const String name = 'GameLobbyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const GameLobbyScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [HomeScreen]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})

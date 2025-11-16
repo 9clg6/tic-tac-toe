@@ -5,8 +5,8 @@ class TappableComponent extends StatelessWidget {
   /// Constructor
   const TappableComponent({
     required this.child,
-    required this.onTap,
     required this.color,
+    this.onTap,
     this.borderRadius,
     super.key,
   });
@@ -15,7 +15,7 @@ class TappableComponent extends StatelessWidget {
   final Widget child;
 
   /// The on tap callback
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   /// The color of the component
   final Color color;

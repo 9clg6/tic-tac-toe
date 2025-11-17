@@ -52,7 +52,7 @@ class HomeViewModel extends _$HomeViewModel {
 
     _gridSubscription = _gameService.gridStream.listen((Grid updatedGrid) {
       state = state.copyWith(grid: updatedGrid, isLoading: false);
-      if (_gameService.winner != null) {
+      if (_gameService.isGameEnded == true) {
         portalController.show();
       }
     });

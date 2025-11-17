@@ -19,7 +19,8 @@ class CodegenLoader extends AssetLoader{
     "playerXwon": "Le joueur {} a gagné",
     "restart": "Restart",
     "leave": "Quitter",
-    "yourTurn": "C'est ton tour !"
+    "yourTurn": "C'est ton tour !",
+    "matchNul": "Match nul, la partie est terminée"
   },
   "home": {
     "startButton": "Démarrer"

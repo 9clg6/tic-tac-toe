@@ -54,6 +54,8 @@ class _WinnerOverlay extends ConsumerWidget {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Size size = MediaQuery.of(context).size;
 
+    final bool isThereWinner = viewModel.winner != null;
+
     return Container(
       width: size.width,
       height: size.height / 15,
@@ -65,9 +67,11 @@ class _WinnerOverlay extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           TextVariant(
-            LocaleKeys.game_playerXwon.tr(
-              args: <String>[viewModel.winner!.toString()],
-            ),
+            isThereWinner
+                ? LocaleKeys.game_playerXwon.tr(
+                    args: <String>[viewModel.winner!.toString()],
+                  )
+                : LocaleKeys.game_matchNul.tr(),
             variantType: TextVariantType.displaySmall,
             fontSize: 32,
           ),

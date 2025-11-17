@@ -7,6 +7,7 @@ abstract class  LocaleKeys {
   static const game_restart = 'game.restart';
   static const game_leave = 'game.leave';
   static const game_yourTurn = 'game.yourTurn';
+  static const game_matchNul = 'game.matchNul';
   static const game = 'game';
   static const home_startButton = 'home.startButton';
   static const home = 'home';

@@ -96,7 +96,7 @@ void main() {
     final ClearOnlineGameActionsParam captured =
         verify(() => clearUseCase.invoke(captureAny())).captured.single
             as ClearOnlineGameActionsParam;
-            
+
     expect(captured.gameId, 'sync-id');
   });
 
@@ -124,4 +124,44 @@ void main() {
     verify(() => watchUseCase.invoke(any())).called(1);
     verifyNever(() => appendUseCase.invoke(any()));
   });
+
+  test('dispose cancels remote subscription', () async {
+    int cancelCount = 0;
+    final StreamController<OnlineGameSyncEntity> controller =
+        StreamController<OnlineGameSyncEntity>.broadcast(
+          onCancel: () => cancelCount++,
+        );
+    addTearDown(controller.close);
+
+    final OnlineGameService service = buildService(controller.stream)
+      ..initialize(isOnlineGame: true, onlineGameId: 'sync-id');
+
+    await Future<void>.delayed(Duration.zero);
+    service.dispose();
+    await Future<void>.delayed(Duration.zero);
+
+    expect(cancelCount, 1);
+  });
+
+  test(
+    'reinitialize restarts remote sync after cancelling previous listener',
+    () async {
+      int cancelCount = 0;
+      final StreamController<OnlineGameSyncEntity> controller =
+          StreamController<OnlineGameSyncEntity>.broadcast(
+            onCancel: () => cancelCount++,
+          );
+      addTearDown(controller.close);
+
+      final OnlineGameService service = buildService(controller.stream)
+        ..initialize(isOnlineGame: true, onlineGameId: 'first-game');
+      await Future<void>.delayed(Duration.zero);
+
+      service.initialize(isOnlineGame: true, onlineGameId: 'second-game');
+      await Future<void>.delayed(Duration.zero);
+
+      expect(cancelCount, 1);
+      verify(() => watchUseCase.invoke(any())).called(2);
+    },
+  );
 }

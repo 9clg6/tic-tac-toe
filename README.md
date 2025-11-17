@@ -115,7 +115,14 @@ Cela permet d’optimiser le parcours en ne testant que les directions pertinent
 - Découpage en Usecase / Repository / Data Source
 - Attention portée au respect des dépendances entre les couches (domain/data) notamment via le fonctionnement UseCase / Repository (interface).
 
+### Précisions 
+#### GameServiceMixin
 
+Cette mixin a pour vocation de partager des comportements partagé tout en définissant des prototypes définissables dans les classes utilisatrices, par exemple configureAfterInitialize, le comportement pourrait ne pas pas être le même dans le mode en ligne que dans le mode local. Donc dans un soucis de respect des principes SOLID, notamment O pour Open-Closed Principle, cette mixin permet de potentiellement étendre des fonctionnements tout en évitant la duplication de code.
+
+#### GitHub Actions
+
+Une Github Actions a été mise en place pour exécuter les tests lors d'une MR et refuser le merge en cas d'échec du job. Cela permet d'eviter les régressions.
 
 
 

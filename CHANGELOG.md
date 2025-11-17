@@ -1,3 +1,7 @@
+# 0.0.6
+- Removed junk
+- Removed useless libraries from my starting template
+
 # 0.0.5
 - Changed ROADMAP.md : Build UI by Canvas is unseless then removed v2 plan
 - Simple matchmaking : players join list, FIFO principle to find game

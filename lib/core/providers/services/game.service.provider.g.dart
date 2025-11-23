@@ -6,7 +6,7 @@ part of 'game.service.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$gameServiceHash() => r'7d9a2429091f74137d231c4d301e8b93eed8c5a3';
+String _$gameServiceHash() => r'fdb0eb9d2976c82bb19312b13ef7ebd3877284cb';
 
 /// Provides the singleton instance of [GameService].
 ///

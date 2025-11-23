@@ -1,3 +1,5 @@
+import 'package:tictactoe/domain/entities/player_action.entity.dart';
+
 /// Represents an online game document stored in Firestore.
 class OnlineGameEntity {
   /// Creates an [OnlineGameEntity].
@@ -6,6 +8,7 @@ class OnlineGameEntity {
     this.createdAt,
     this.playerIds = const <int>[],
     this.nextPlayerId = 0,
+    this.actions = const <PlayerAction>[],
   });
 
   /// Firestore document id of the game.
@@ -19,4 +22,7 @@ class OnlineGameEntity {
 
   /// Next id that should be assigned when a player joins.
   final int nextPlayerId;
+
+  /// List of actions played in the game.
+  final List<PlayerAction> actions;
 }

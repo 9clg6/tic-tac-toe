@@ -17,6 +17,13 @@ _OnlineGameRemoteModel _$OnlineGameRemoteModelFromJson(
           .toList() ??
       const <int>[],
   nextPlayerId: (json['nextPlayerId'] as num?)?.toInt() ?? 0,
+  actions:
+      (json['actions'] as List<dynamic>?)
+          ?.map(
+            (e) => PlayerActionRemoteModel.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      const <PlayerActionRemoteModel>[],
 );
 
 Map<String, dynamic> _$OnlineGameRemoteModelToJson(
@@ -26,4 +33,5 @@ Map<String, dynamic> _$OnlineGameRemoteModelToJson(
   'createdAt': const TimestampConverter().toJson(instance.createdAt),
   'players': instance.players,
   'nextPlayerId': instance.nextPlayerId,
+  'actions': instance.actions,
 };

@@ -16,39 +16,6 @@ final class PlayerAction {
     required this.form,
   });
 
-  /// Deserializes a [PlayerAction] from a Firestore map.
-  ///
-  /// The [map] must contain the keys 'playerNumber', 
-  ///   'row', 'column', and 'form'.
-  /// - 'playerNumber': int or num, representing the player who made the move.
-  /// - 'row': int or num, specifying the row index on the grid.
-  /// - 'column': int or num, specifying the column index on the grid.
-  /// - 'form': String, matching the [Form] enum name (e.g. 'cross', 'circle').
-  ///
-  /// If 'form' does not match any known value, [Form.cross] is used
-  /// as a fallback.
-  ///
-  /// Example:
-  ///
-  /// final action = PlayerAction.fromMap({
-  ///   'playerNumber': 1,
-  ///   'row': 0,
-  ///   'column': 2,
-  ///   'form': 'cross',
-  /// });
-  ///
-  factory PlayerAction.fromMap(Map<String, dynamic> map) => PlayerAction(
-    playerNumber: (map['playerNumber'] as num).toInt(),
-    coordinates: CellCoordinates(
-      rowNumber: (map['row'] as num).toInt(),
-      columnNumber: (map['column'] as num).toInt(),
-    ),
-    form: Form.values.firstWhere(
-      (Form form) => form.name == map['form'],
-      orElse: () => Form.cross,
-    ),
-  );
-
   /// The number representing the player who performed the action.
   final int playerNumber;
 
@@ -63,12 +30,4 @@ final class PlayerAction {
   ///
   /// Example: Form.cross or Form.circle
   final Form form;
-
-  /// Converts this action to a serializable map.
-  Map<String, dynamic> toMap() => <String, dynamic>{
-    'playerNumber': playerNumber,
-    'row': coordinates.rowNumber,
-    'column': coordinates.columnNumber,
-    'form': form.name,
-  };
 }

@@ -44,11 +44,9 @@ mixin GameServiceMixin implements GameService {
   Stream<Grid> get gridStream => _gridSubject.stream;
 
   @override
-  Stream<PlayerAction> get playersActionsStream =>
-      _playerActionsSubject.stream;
+  Stream<PlayerAction> get playersActionsStream => _playerActionsSubject.stream;
 
-  List<PlayerAction> get _playerActionsHistory =>
-      _playerActionsSubject.values;
+  List<PlayerAction> get _playerActionsHistory => _playerActionsSubject.values;
 
   /// Exposes the current actions history to subclasses.
   @protected
@@ -71,33 +69,8 @@ mixin GameServiceMixin implements GameService {
 
   @override
   int get currentPlayerTurn {
-    const int firstPlayerId = 0;
-
-    if (_players == null || _players!.isEmpty) {
-      return firstPlayerId;
-    }
-
-    final Map<int, int> playCount = <int, int>{};
-    for (final PlayerAction action in _playerActionsHistory) {
-      playCount.update(
-        action.playerNumber,
-        (int value) => value + 1,
-        ifAbsent: () => 1,
-      );
-    }
-
-    if (playCount.length < _players!.length) {
-      for (int i = 0; i < _players!.length; i++) {
-        if (!playCount.containsKey(i)) {
-          return i;
-        }
-      }
-    }
-
-    if (_playerActionsHistory.isEmpty) return firstPlayerId;
-    final PlayerAction lastAction = _playerActionsHistory.last;
-    final int nextPlayer = (lastAction.playerNumber + 1) % _players!.length;
-    return nextPlayer;
+    if (_lastAction == null) return 0;
+    return (_lastAction!.playerNumber + 1) % _players!.length;
   }
 
   @override

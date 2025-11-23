@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnlineGameRemoteModel {
 
- String? get id;@TimestampConverter() DateTime? get createdAt; List<int> get players; int get nextPlayerId;
+ String? get id;@TimestampConverter() DateTime? get createdAt; List<int> get players; int get nextPlayerId; List<PlayerActionRemoteModel> get actions;
 /// Create a copy of OnlineGameRemoteModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $OnlineGameRemoteModelCopyWith<OnlineGameRemoteModel> get copyWith => _$OnlineGa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineGameRemoteModel&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.players, players)&&(identical(other.nextPlayerId, nextPlayerId) || other.nextPlayerId == nextPlayerId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineGameRemoteModel&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.players, players)&&(identical(other.nextPlayerId, nextPlayerId) || other.nextPlayerId == nextPlayerId)&&const DeepCollectionEquality().equals(other.actions, actions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,createdAt,const DeepCollectionEquality().hash(players),nextPlayerId);
+int get hashCode => Object.hash(runtimeType,id,createdAt,const DeepCollectionEquality().hash(players),nextPlayerId,const DeepCollectionEquality().hash(actions));
 
 @override
 String toString() {
-  return 'OnlineGameRemoteModel(id: $id, createdAt: $createdAt, players: $players, nextPlayerId: $nextPlayerId)';
+  return 'OnlineGameRemoteModel(id: $id, createdAt: $createdAt, players: $players, nextPlayerId: $nextPlayerId, actions: $actions)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $OnlineGameRemoteModelCopyWith<$Res>  {
   factory $OnlineGameRemoteModelCopyWith(OnlineGameRemoteModel value, $Res Function(OnlineGameRemoteModel) _then) = _$OnlineGameRemoteModelCopyWithImpl;
 @useResult
 $Res call({
- String? id,@TimestampConverter() DateTime? createdAt, List<int> players, int nextPlayerId
+ String? id,@TimestampConverter() DateTime? createdAt, List<int> players, int nextPlayerId, List<PlayerActionRemoteModel> actions
 });
 
 
@@ -65,13 +65,14 @@ class _$OnlineGameRemoteModelCopyWithImpl<$Res>
 
 /// Create a copy of OnlineGameRemoteModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? createdAt = freezed,Object? players = null,Object? nextPlayerId = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? createdAt = freezed,Object? players = null,Object? nextPlayerId = null,Object? actions = null,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,players: null == players ? _self.players : players // ignore: cast_nullable_to_non_nullable
 as List<int>,nextPlayerId: null == nextPlayerId ? _self.nextPlayerId : nextPlayerId // ignore: cast_nullable_to_non_nullable
-as int,
+as int,actions: null == actions ? _self.actions : actions // ignore: cast_nullable_to_non_nullable
+as List<PlayerActionRemoteModel>,
   ));
 }
 
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId,  List<PlayerActionRemoteModel> actions)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OnlineGameRemoteModel() when $default != null:
-return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case _:
+return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId,_that.actions);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId,  List<PlayerActionRemoteModel> actions)  $default,) {final _that = this;
 switch (_that) {
 case _OnlineGameRemoteModel():
-return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case _:
+return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId,_that.actions);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +198,10 @@ return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id, @TimestampConverter()  DateTime? createdAt,  List<int> players,  int nextPlayerId,  List<PlayerActionRemoteModel> actions)?  $default,) {final _that = this;
 switch (_that) {
 case _OnlineGameRemoteModel() when $default != null:
-return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case _:
+return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId,_that.actions);case _:
   return null;
 
 }
@@ -212,7 +213,7 @@ return $default(_that.id,_that.createdAt,_that.players,_that.nextPlayerId);case 
 @JsonSerializable()
 
 class _OnlineGameRemoteModel extends OnlineGameRemoteModel {
-  const _OnlineGameRemoteModel({this.id, @TimestampConverter() this.createdAt, final  List<int> players = const <int>[], this.nextPlayerId = 0}): _players = players,super._();
+  const _OnlineGameRemoteModel({this.id, @TimestampConverter() this.createdAt, final  List<int> players = const <int>[], this.nextPlayerId = 0, final  List<PlayerActionRemoteModel> actions = const <PlayerActionRemoteModel>[]}): _players = players,_actions = actions,super._();
   factory _OnlineGameRemoteModel.fromJson(Map<String, dynamic> json) => _$OnlineGameRemoteModelFromJson(json);
 
 @override final  String? id;
@@ -225,6 +226,13 @@ class _OnlineGameRemoteModel extends OnlineGameRemoteModel {
 }
 
 @override@JsonKey() final  int nextPlayerId;
+ final  List<PlayerActionRemoteModel> _actions;
+@override@JsonKey() List<PlayerActionRemoteModel> get actions {
+  if (_actions is EqualUnmodifiableListView) return _actions;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_actions);
+}
+
 
 /// Create a copy of OnlineGameRemoteModel
 /// with the given fields replaced by the non-null parameter values.
@@ -239,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineGameRemoteModel&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._players, _players)&&(identical(other.nextPlayerId, nextPlayerId) || other.nextPlayerId == nextPlayerId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineGameRemoteModel&&(identical(other.id, id) || other.id == id)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._players, _players)&&(identical(other.nextPlayerId, nextPlayerId) || other.nextPlayerId == nextPlayerId)&&const DeepCollectionEquality().equals(other._actions, _actions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,createdAt,const DeepCollectionEquality().hash(_players),nextPlayerId);
+int get hashCode => Object.hash(runtimeType,id,createdAt,const DeepCollectionEquality().hash(_players),nextPlayerId,const DeepCollectionEquality().hash(_actions));
 
 @override
 String toString() {
-  return 'OnlineGameRemoteModel(id: $id, createdAt: $createdAt, players: $players, nextPlayerId: $nextPlayerId)';
+  return 'OnlineGameRemoteModel(id: $id, createdAt: $createdAt, players: $players, nextPlayerId: $nextPlayerId, actions: $actions)';
 }
 
 
@@ -259,7 +267,7 @@ abstract mixin class _$OnlineGameRemoteModelCopyWith<$Res> implements $OnlineGam
   factory _$OnlineGameRemoteModelCopyWith(_OnlineGameRemoteModel value, $Res Function(_OnlineGameRemoteModel) _then) = __$OnlineGameRemoteModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? id,@TimestampConverter() DateTime? createdAt, List<int> players, int nextPlayerId
+ String? id,@TimestampConverter() DateTime? createdAt, List<int> players, int nextPlayerId, List<PlayerActionRemoteModel> actions
 });
 
 
@@ -276,13 +284,14 @@ class __$OnlineGameRemoteModelCopyWithImpl<$Res>
 
 /// Create a copy of OnlineGameRemoteModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? createdAt = freezed,Object? players = null,Object? nextPlayerId = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? createdAt = freezed,Object? players = null,Object? nextPlayerId = null,Object? actions = null,}) {
   return _then(_OnlineGameRemoteModel(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,players: null == players ? _self._players : players // ignore: cast_nullable_to_non_nullable
 as List<int>,nextPlayerId: null == nextPlayerId ? _self.nextPlayerId : nextPlayerId // ignore: cast_nullable_to_non_nullable
-as int,
+as int,actions: null == actions ? _self._actions : actions // ignore: cast_nullable_to_non_nullable
+as List<PlayerActionRemoteModel>,
   ));
 }
 

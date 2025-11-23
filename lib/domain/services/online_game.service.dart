@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:tictactoe/data/model/remote/player_action.remote.model.dart';
 import 'package:tictactoe/domain/entities/online_game_sync.entity.dart';
 import 'package:tictactoe/domain/entities/player_action.entity.dart';
 import 'package:tictactoe/domain/params/append_online_game_action.param.dart';
@@ -18,9 +19,9 @@ final class OnlineGameService with GameServiceMixin implements GameService {
     required AppendOnlineGameActionUseCase appendActionUseCase,
     required ClearOnlineGameActionsUseCase clearOnlineGameActionsUseCase,
     required WatchOnlineGameSyncUseCase watchOnlineGameSyncUseCase,
-  })  : _appendActionUseCase = appendActionUseCase,
-        _clearOnlineGameActionsUseCase = clearOnlineGameActionsUseCase,
-        _watchOnlineGameSyncUseCase = watchOnlineGameSyncUseCase;
+  }) : _appendActionUseCase = appendActionUseCase,
+       _clearOnlineGameActionsUseCase = clearOnlineGameActionsUseCase,
+       _watchOnlineGameSyncUseCase = watchOnlineGameSyncUseCase;
 
   final AppendOnlineGameActionUseCase _appendActionUseCase;
   final ClearOnlineGameActionsUseCase _clearOnlineGameActionsUseCase;
@@ -49,7 +50,7 @@ final class OnlineGameService with GameServiceMixin implements GameService {
     }
 
     final Map<String, dynamic> payload = <String, dynamic>{
-      ...action.toMap(),
+      ...PlayerActionRemoteModel.fromEntity(action).toJson(),
       'timestamp': DateTime.now().millisecondsSinceEpoch,
     };
 

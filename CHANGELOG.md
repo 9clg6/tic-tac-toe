@@ -1,3 +1,7 @@
+# 0.0.7
+- Fix architecture problem with PlayerAction / PlayerActionRemoteModel
+-
+
 # 0.0.6
 - Removed junk
 - Removed useless libraries from my starting template

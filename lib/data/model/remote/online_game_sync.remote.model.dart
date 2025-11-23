@@ -1,3 +1,4 @@
+import 'package:tictactoe/data/model/remote/player_action.remote.model.dart';
 import 'package:tictactoe/domain/entities/online_game_sync.entity.dart';
 import 'package:tictactoe/domain/entities/player_action.entity.dart';
 
@@ -13,7 +14,8 @@ class OnlineGameSyncRemoteModel {
 
     final List<PlayerAction> parsedActions = rawActions
         .whereType<Map<String, dynamic>>()
-        .map(PlayerAction.fromMap)
+        .map(PlayerActionRemoteModel.fromJson)
+        .map((PlayerActionRemoteModel e) => e.toEntity())
         .toList(growable: false);
     return OnlineGameSyncRemoteModel(actions: parsedActions);
   }

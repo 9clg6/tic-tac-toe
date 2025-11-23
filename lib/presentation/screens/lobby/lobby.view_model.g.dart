@@ -6,7 +6,7 @@ part of 'lobby.view_model.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$lobbyViewModelHash() => r'e4d4c1451365868f7fcff7e647eb9ffdb30a1267';
+String _$lobbyViewModelHash() => r'6987f213588188d27d998e51df40cbb5efed4f0a';
 
 /// Handles lobby interactions while delegating business logic to services.
 ///

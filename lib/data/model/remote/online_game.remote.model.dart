@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tictactoe/data/model/remote/converters/timestamp_converter.dart';
+import 'package:tictactoe/data/model/remote/player_action.remote.model.dart';
 import 'package:tictactoe/domain/entities/online_game.entity.dart';
 
 part 'online_game.remote.model.freezed.dart';
@@ -15,6 +16,7 @@ abstract class OnlineGameRemoteModel with _$OnlineGameRemoteModel {
     @TimestampConverter() DateTime? createdAt,
     @Default(<int>[]) List<int> players,
     @Default(0) int nextPlayerId,
+    @Default(<PlayerActionRemoteModel>[]) List<PlayerActionRemoteModel> actions,
   }) = _OnlineGameRemoteModel;
 
   const OnlineGameRemoteModel._();
@@ -43,6 +45,7 @@ abstract class OnlineGameRemoteModel with _$OnlineGameRemoteModel {
     createdAt: createdAt,
     playerIds: players,
     nextPlayerId: nextPlayerId,
+    actions: actions.map((e) => e.toEntity()).toList(),
   );
 }
 
